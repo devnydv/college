@@ -1,0 +1,96 @@
+
+    
+    {%extends "base.html"%}
+
+    {%block head%}
+    <title>Programs - Brahmagupta Engineering College</title>
+        <link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        {%endblock%}
+        {%block content%}
+    
+
+    <main class="programs-page">
+        <header class="program-hero">
+            <h1>Our Programs</h1>
+            <p>Discover Your Future in Engineering</p>
+        </header>
+
+        <section class="programs-grid">
+            <div class="program-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Computer Science Engineering</h3>
+                <p>Learn software development, artificial intelligence, and more.</p>
+                <ul class="program-details">
+                    <li><i class="fas fa-clock"></i> Duration: 4 years</li>
+                    <li><i class="fas fa-users"></i> Seats: 120</li>
+                </ul>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+
+            <div class="program-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Electronics Engineering</h3>
+                <p>Study circuit design, embedded systems, and electronics.</p>
+                <ul class="program-details">
+                    <li><i class="fas fa-clock"></i> Duration: 4 years</li>
+                    <li><i class="fas fa-users"></i> Seats: 60</li>
+                </ul>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+
+            <div class="program-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Mechanical Engineering</h3>
+                <p>Master mechanics, thermodynamics, and manufacturing.</p>
+                <ul class="program-details">
+                    <li><i class="fas fa-clock"></i> Duration: 4 years</li>
+                    <li><i class="fas fa-users"></i> Seats: 60</li>
+                </ul>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+
+            <div class="program-card">
+                <i class="fas fa-industry"></i>
+                <h3>Civil Engineering</h3>
+                <p>Design infrastructure, buildings, and sustainable solutions.</p>
+                <ul class="program-details">
+                    <li><i class="fas fa-clock"></i> Duration: 4 years</li>
+                    <li><i class="fas fa-users"></i> Seats: 60</li>
+                </ul>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+        </section>
+
+        <section class="admission-info">
+            <h2>Admission Process</h2>
+            <div class="admission-steps">
+                <div class="step">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Apply Online</h4>
+                    <p>Submit your application through our portal</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Document Verification</h4>
+                    <p>Submit required documents for verification</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Enrollment</h4>
+                    <p>Complete admission process and begin your journey</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script type="importmap">
+        {
+            "imports": {
+                "config": "./config.js"
+            }
+        }
+    </script>
+    {%endblock%}

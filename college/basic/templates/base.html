@@ -30,14 +30,39 @@
         <ul class="nav-links">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="programs.html">Courses</a></li>
-            <li><a href="news.html">News & Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="login-btn">Login</a></li>
+            <li><a href="/programs">Courses</a></li>
+            <li><a href="/news">News & Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login" class="login-btn">Login</a></li>
         </ul>
     </nav>
     {%block content%}
     
     {%endblock%}
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info"></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Brahmagupta Engineering College. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="{{url_for('basic.static', filename='js/script.js')}}"></script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+
+{%extends "base.html"%}
+
+{%block head%}
+<title>News & Events - Brahmagupta Engineering College</title>
+    <link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {%endblock%}
+    {%block content%}
+
+    <main class="news-page">
+        <header class="page-hero">
+            <h1>News & Events</h1>
+            <p>Stay Updated with College Activities</p>
+        </header>
+
+        <section class="news-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="news">News</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="announcements">Announcements</button>
+        </section>
+
+        <section class="news-events-grid">
+            <article class="news-item" data-category="events">
+                <div class="news-date">
+                    <span class="day">15</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="news-content">
+                    <h3>Annual Technical Symposium</h3>
+                    <p>Join us for Technovation 2024, featuring workshops, competitions, and guest lectures.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="news">
+                <div class="news-date">
+                    <span class="day">10</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="news-content">
+                    <h3>Research Grant Awarded</h3>
+                    <p>Our college received a prestigious research grant for AI development.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- More news items -->
+        </section>
+
+        <section class="upcoming-events">
+            <h2>Upcoming Events Calendar</h2>
+            <div class="calendar-widget">
+                <!-- Calendar will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+
+
+    <script type="importmap">
+        {
+            "imports": {
+                "config": "./config.js"
+            }
+        }
+    </script>
+    
+    {%endblock%}
