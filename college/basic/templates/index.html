@@ -1,0 +1,97 @@
+{%extends "base.html"%}
+
+{%block head%}
+<title>Brahmagupta Engineering College</title>
+    <link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {%endblock%}
+    {%block content%}
+    
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Brahmagupta Engineering College</h1>
+            <p>Shaping Tomorrow's Engineers Today</p>
+            <a href="programs.html" class="cta-button">Explore Programs</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="overview">
+            <h2>College Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Excellence in Education</h3>
+                    <p>Providing quality engineering education since 1995</p>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Research Focus</h3>
+                    <p>State-of-the-art laboratories and research facilities</p>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Industry Connect</h3>
+                    <p>Strong partnerships with leading tech companies</p>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Expert Faculty</h3>
+                    <p>Experienced professors and industry experts</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-highlight">
+            <h2>Latest News & Events</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>Annual Tech Fest 2024</h3>
+                    <p>Join us for the biggest technical festival of the year</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="news-card">
+                    <h3>Campus Placement Drive</h3>
+                    <p>Top companies visiting for recruitment</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info"></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Brahmagupta Engineering College. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "config": "./config.js"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+
+    {%endblock%}

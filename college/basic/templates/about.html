@@ -1,0 +1,105 @@
+{%extends "base.html"%}
+
+{%block head%}
+<TITLE> about page</TITLE>
+<link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+{%endblock%}
+    {%block content%}
+    
+
+    <main class="about-page">
+        <header class="page-hero">
+            <h1>About Us</h1>
+            <p>Excellence in Engineering Education Since 1995</p>
+        </header>
+
+        <section class="about-content">
+            <div class="about-section vision-mission">
+                <div class="vision">
+                    <i class="fas fa-eye"></i>
+                    <h2>Our Vision</h2>
+                    <p>To be a globally recognized institution in engineering education, research, and innovation.</p>
+                </div>
+                <div class="mission">
+                    <i class="fas fa-bullseye"></i>
+                    <h2>Our Mission</h2>
+                    <p>To nurture technical excellence, innovation, and ethical values in our students.</p>
+                </div>
+            </div>
+
+            <div class="about-section history">
+                <h2>Our History</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="year">1995</span>
+                        <p>Foundation of Brahmagupta Engineering College</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">2000</span>
+                        <p>Introduction of Computer Science Department</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">2010</span>
+                        <p>Establishment of Research Center</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">2020</span>
+                        <p>Ranked among Top 50 Engineering Colleges</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section achievements">
+                <h2>Our Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>NAAC 'A' Grade</h3>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-star"></i>
+                        <h3>NBA Accredited</h3>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-award"></i>
+                        <h3>ISO 9001:2015</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info"></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Brahmagupta Engineering College. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "config": "./config.js"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+{%endblock%}
