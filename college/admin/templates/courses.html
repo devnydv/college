@@ -1,0 +1,126 @@
+{% from "macro/cmsnav.html" import cmsnav%}
+{%extends "admbase.html"%}
+{%block head%}
+    <title>College Management System</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{%endblock%}
+{%block content%}
+    <div class="container" w-tid="21">
+        <!-- Sidebar -->
+        {{cmsnav()}}
+        <main class="main-content" w-tid="111">
+            <header class="top-header" w-tid="113">
+                <div class="search-box" w-tid="115">
+                    <input type="text" placeholder="Search..." w-tid="117"/>
+                    <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
+                </div>
+                <div class="user-profile" w-tid="123">
+                    <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
+                    <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
+                    <div class="profile-img" w-tid="133">
+                        <i class="fas fa-user-circle" w-tid="135"></i>
+                    </div>
+                    <span class="username" w-tid="137">Admin User</span>
+                </div>
+            </header>
+            <!-- Dashboard Section -->
+            <div id="dashboard-page" class="content-section" w-tid="139">
+                <div class="dashboard" w-tid="141">
+                    <h1 w-tid="357">Courses Management</h1>
+                    <div class="students-header" w-tid="359">
+                        <p w-tid="361">Manage all course information and schedules</p>
+                        <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button>
+                    </div>
+                    <div class="student-filters" w-tid="1751">
+                        <div class="filter-group" w-tid="1753">
+                            <label w-tid="1755">Department:</label>
+                            <select w-tid="1757">
+                                <option w-tid="1759">All Departments</option>
+                                <option w-tid="1761">Computer Science</option>
+                                <option w-tid="1763">Business Admin</option>
+                                <option w-tid="1765">Engineering</option>
+                                <option w-tid="1767">Psychology</option>
+                            </select>
+                        </div>
+                        
+                        <!-- <div class="filter-group" w-tid="1769">
+                            <label w-tid="1771">Semester:</label>
+                            <select w-tid="1773">
+                                <option w-tid="1775">All Semesters</option>
+                                <option w-tid="1777">Fall 2023</option>
+                                <option w-tid="1779">Spring 2024</option>
+                                <option w-tid="1781">Summer 2024</option>
+                            </select>
+                        </div> -->
+                        
+                        <!-- <div class="filter-group" w-tid="1783">
+                            <label w-tid="1785">Status:</label>
+                            <select w-tid="1787">
+                                <option w-tid="1789">All Status</option>
+                                <option w-tid="1791">Active</option>
+                                <option w-tid="1793">Inactive</option>
+                                <option w-tid="1795">Full</option>
+                            </select>
+                        </div> -->
+                    </div>
+                    <div class="students-table" w-tid="1797">
+                        <table w-tid="1799">
+                            <thead w-tid="1801">
+                                <tr w-tid="1803">
+                                    <th w-tid="1805">Course ID</th>
+                                    <th w-tid="1807">Course Name</th>
+                                    <th w-tid="1809">Department</th>
+                                    <th w-tid="1809">No. of Semesters</th>
+                                    
+                                    
+                                    <th w-tid="1821">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody w-tid="1823">
+                                <tr w-tid="1825">
+                                    <td w-tid="1827">CS101</td>
+                                    <td w-tid="1829">Introduction to Programming</td>
+                                    <td w-tid="1831">Computer Science</td>
+                                    <td w-tid="1831">8</td>
+                                    
+                                    
+                                    
+                                    <td class="action-cell" w-tid="1845">
+                                        <button class="action-btn view-btn" w-tid="1847"><i class="fas fa-eye" w-tid="1849"></i></button>
+                                        <button class="action-btn edit-btn" w-tid="1851"><i class="fas fa-edit" w-tid="1853"></i></button>
+                                        <button class="action-btn delete-btn" w-tid="1855"><i class="fas fa-trash" w-tid="1857"></i></button>
+                                    </td>
+                                </tr>
+                                
+                               
+                                
+                                
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" w-tid="601">
+                        <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
+                        <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
+                        <button class="active" w-tid="611">1</button>
+                        <button w-tid="613">2</button>
+                        <button w-tid="615">3</button>
+                        <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
+                        <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+
+
+
+
+        </main>
+    </div>
+    
+    {%endblock%}

@@ -1,0 +1,128 @@
+{% from "macro/cmsnav.html" import cmsnav%}
+{%extends "admbase.html"%}
+{%block head%}
+    <title>College Management System</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{%endblock%}
+{%block content%}
+    <div class="container" w-tid="21">
+        <!-- Sidebar -->
+        {{cmsnav()}}
+        <main class="main-content" w-tid="111">
+            <header class="top-header" w-tid="113">
+                <div class="search-box" w-tid="115">
+                    <input type="text" placeholder="Search..." w-tid="117"/>
+                    <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
+                </div>
+                <div class="user-profile" w-tid="123">
+                    <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
+                    <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
+                    <div class="profile-img" w-tid="133">
+                        <i class="fas fa-user-circle" w-tid="135"></i>
+                    </div>
+                    <span class="username" w-tid="137">Admin User</span>
+                </div>
+            </header>
+            <!-- Dashboard Section -->
+            <div id="dashboard-page" class="content-section" w-tid="139">
+                <div class="dashboard" w-tid="141">
+                    <h1 w-tid="357">Attendance Management</h1>
+                    
+                    <div class="attendance-header" w-tid="1611">
+                        <div class="filter-controls" w-tid="1613">
+                            <div class="filter-group" w-tid="1615">
+                                <label for="attendance-date" w-tid="1617">Date:</label>
+                                <input type="date" id="attendance-date" w-tid="1619">
+                            </div>
+                            <div class="filter-group" w-tid="1621">
+                                <label for="attendance-department" w-tid="1623">Department:</label>
+                                <select id="attendance-department" w-tid="1625">
+                                    <option value="" w-tid="1627">All Departments</option>
+                                    <option value="computer-science" w-tid="1629">Computer Science</option>
+                                    <option value="business-admin" w-tid="1631">Business Admin</option>
+                                    <option value="engineering" w-tid="1633">Engineering</option>
+                                    <option value="psychology" w-tid="1635">Psychology</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="bulk-actions" w-tid="1637">
+                            <select id="bulk-action" w-tid="1639">
+                                <option value="" w-tid="1641">Bulk Actions</option>
+                                <option value="present" w-tid="1643">Mark Present</option>
+                                <option value="absent" w-tid="1645">Mark Absent</option>
+                                <option value="late" w-tid="1647">Mark Late</option>
+                            </select>
+                            <button id="apply-bulk-action" class="action-btn" w-tid="1649">Apply</button>
+                        </div>
+                    </div>
+                    <div class="attendance-table" w-tid="1651">
+                        <table w-tid="1653">
+                            <thead w-tid="1655">
+                                <tr w-tid="1657">
+                                    <th w-tid="1659"><input type="checkbox" id="select-all" w-tid="1661"></th>
+                                    <th w-tid="1663">Student ID</th>
+                                    <th w-tid="1665">Name</th>
+                                    <th w-tid="1667">Department</th>
+                                    <th w-tid="1669">Year</th>
+                                    <th w-tid="1671">Present</th>
+                                    <th w-tid="1673">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody w-tid="1675">
+                                <tr w-tid="1677">
+                                    <td w-tid="1679"><input type="checkbox" class="student-select" w-tid="1681"></td>
+                                    <td w-tid="1683">ST001</td>
+                                    <td w-tid="1685">John Smith</td>
+                                    <td w-tid="1687">Computer Science</td>
+                                    <td w-tid="1689">Second Year</td>
+                                    <td w-tid="1691">
+                                        <select class="attendance-status" w-tid="1693">
+                                            <option value="present" w-tid="1695">Present</option>
+                                            <option value="absent" w-tid="1697">Absent</option>
+                                            <option value="late" w-tid="1699">Late</option>
+                                        </select>
+                                    </td>
+                                    <td w-tid="1701"><input type="text" placeholder="Add remarks" w-tid="1703"></td>
+                                </tr>
+                                <tr w-tid="1705">
+                                    <td w-tid="1707"><input type="checkbox" class="student-select" w-tid="1709"></td>
+                                    <td w-tid="1711">ST002</td>
+                                    <td w-tid="1713">Sarah Johnson</td>
+                                    <td w-tid="1715">Business Admin</td>
+                                    <td w-tid="1717">First Year</td>
+                                    <td w-tid="1719">
+                                        <select class="attendance-status" w-tid="1721">
+                                            <option value="present" w-tid="1723">Present</option>
+                                            <option value="absent" w-tid="1725">Absent</option>
+                                            <option value="late" w-tid="1727">Late</option>
+                                        </select>
+                                    </td>
+                                    <td w-tid="1729"><input type="text" placeholder="Add remarks" w-tid="1731"></td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" w-tid="601">
+                        <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
+                        <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
+                        <button class="active" w-tid="611">1</button>
+                        <button w-tid="613">2</button>
+                        <button w-tid="615">3</button>
+                        <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
+                        <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+
+
+
+
+        </main>
+    </div>
+    {%endblock%}

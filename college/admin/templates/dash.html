@@ -1,0 +1,171 @@
+{% from "macro/cmsnav.html" import cmsnav%}
+{%extends "admbase.html"%}
+{%block head%}
+<title>College Management System</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <script type="module" src="script.js"></script> -->
+    <!-- <script type="module" src="add-student.js"></script> -->
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+{%endblock%}
+{%block content%}
+    <!-- <button class="sidebar-toggle"><i class="fas fa-bars"></i></button> -->
+    <div class="container" w-tid="21">
+        <!-- Sidebar -->
+        {{cmsnav()}}
+        <main class="main-content" w-tid="111">
+            <header class="top-header" w-tid="113">
+                <div class="search-box" w-tid="115">
+                    <input type="text" placeholder="Search..." w-tid="117"/>
+                    <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
+                </div>
+                <div class="user-profile" w-tid="123">
+                    <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
+                    <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
+                    <div class="profile-img" w-tid="133">
+                        <i class="fas fa-user-circle" w-tid="135"></i>
+                    </div>
+                    <span class="username" w-tid="137">Admin User</span>
+                </div>
+            </header>
+            <!-- Dashboard Section -->
+            <div id="dashboard-page" class="content-section" w-tid="139">
+                <div class="dashboard" w-tid="141">
+                    <h1 w-tid="143">Dashboard</h1>
+                    
+                    <div class="stats-cards" w-tid="145">
+                        <div class="stat-card" w-tid="147">
+                            <div class="stat-icon" w-tid="149"><i class="fas fa-user-graduate" w-tid="151"></i></div>
+                            <div class="stat-details" w-tid="153">
+                                <h3 w-tid="155">2,500</h3>
+                                <p w-tid="157">Students</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" w-tid="159">
+                            <div class="stat-icon" w-tid="161"><i class="fas fa-chalkboard-teacher" w-tid="163"></i></div>
+                            <div class="stat-details" w-tid="165">
+                                <h3 w-tid="167">120</h3>
+                                <p w-tid="169">Teachers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" w-tid="171">
+                            <div class="stat-icon" w-tid="173"><i class="fas fa-book" w-tid="175"></i></div>
+                            <div class="stat-details" w-tid="177">
+                                <h3 w-tid="179">85</h3>
+                                <p w-tid="181">Courses</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" w-tid="183">
+                            <div class="stat-icon" w-tid="185"><i class="fas fa-dollar-sign" w-tid="187"></i></div>
+                            <div class="stat-details" w-tid="189">
+                                <h3 w-tid="191">$750,000</h3>
+                                <p w-tid="193">Revenue</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-widgets" w-tid="195">
+                        <div class="widget recent-students" w-tid="197">
+                            <h2 w-tid="199">Recent Students</h2>
+                            <table w-tid="201">
+                                <thead w-tid="203">
+                                    <tr w-tid="205">
+                                        <th w-tid="207">ID</th>
+                                        <th w-tid="209">Name</th>
+                                        <th w-tid="211">Course</th>
+                                        <th w-tid="213">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody w-tid="215">
+                                    <tr w-tid="217">
+                                        <td w-tid="219">ST001</td>
+                                        <td w-tid="221">John Smith</td>
+                                        <td w-tid="223">Computer Science</td>
+                                        <td w-tid="225"><span class="status active" w-tid="227">On Leave</span></td>
+                                    </tr>
+                                    <tr w-tid="229">
+                                        <td w-tid="231">ST002</td>
+                                        <td w-tid="233">Sarah Johnson</td>
+                                        <td w-tid="235">Business Admin</td>
+                                        <td w-tid="237"><span class="status active" w-tid="239">Active</span></td>
+                                    </tr>
+                                    <tr w-tid="241">
+                                        <td w-tid="243">ST003</td>
+                                        <td w-tid="245">Michael Brown</td>
+                                        <td w-tid="247">Engineering</td>
+                                        <td w-tid="249"><span class="status inactive" w-tid="251">On Leave</span></td>
+                                    </tr>
+                                    <tr w-tid="253">
+                                        <td w-tid="255">ST004</td>
+                                        <td w-tid="257">Emily Davis</td>
+                                        <td w-tid="259">Psychology</td>
+                                        <td w-tid="261"><span class="status active" w-tid="263">Active</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        
+                        
+                        <div class="widget notice-board" w-tid="313">
+                            <h2 w-tid="315">Recent Notices</h2>
+                            <div class="notice-list" w-tid="317">
+                                <div class="notice-item" w-tid="319">
+                                    <h3 w-tid="321">Mid-Term Examination Schedule</h3>
+                                    <p w-tid="323">The mid-term examinations for all departments will commence from October 15th, 2023. Students are advised to check their respective department notice boards for detailed schedules.</p>
+                                    <div class="notice-meta" w-tid="325">
+                                        <span w-tid="327">Posted by: Admin</span>
+                                        <span w-tid="329">Posted on: Aug 10, 2023</span>
+                                    </div>
+                                </div>
+                                <div class="notice-item" w-tid="331">
+                                    <h3 w-tid="333">Library Timings Update</h3>
+                                    <p w-tid="335">Please note that the college library will now remain open until 8:00 PM on weekdays to accommodate evening study sessions. Weekend timings remain unchanged.</p>
+                                    <div class="notice-meta" w-tid="337">
+                                        <span w-tid="339">Posted by: Librarian</span>
+                                        <span w-tid="341">Posted on: Aug 8, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    
+
+<script src="{{url_for('static', filename='js/mobile-menu.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle sidebar active class
+        const sidebarItems = document.querySelectorAll('.sidebar-nav li');
+        
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Show correct content section based on sidebar selection
+                const targetPage = this.querySelector('a').getAttribute('data-page');
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                if (targetPage && document.getElementById(targetPage)) {
+                    document.getElementById(targetPage).style.display = 'block';
+                }
+            });
+        });
+    })
+</script>
+
+{%endblock%}
