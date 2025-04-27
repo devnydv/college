@@ -14,6 +14,11 @@ def stdn():
     #inser = addtablerow()
     
     return render_template("student.html")
+
+@app.route("/admin/addstudent", methods = ["GET", "POST"])
+def addstdn():
+    #inser = addtablerow()
+    return render_template("addstudent.html")
     
 
 @app.route("/admin/faculty", methods = ["GET", "POST"])
