@@ -31,10 +31,10 @@
                     <h1 w-tid="357">Department Management</h1>
                     <div class="students-header" w-tid="359">
                         <p w-tid="361">Manage all student information and academic records</p>
-                        <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button>
+                        <!-- <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button> -->
                     </div>
-                    <div class="student-filters" w-tid="367">
-                        <div class="filter-group" w-tid="369">
+                    <!-- <div class="student-filters" w-tid="367"> -->
+                        <!-- <div class="filter-group" w-tid="369">
                             <label w-tid="371">Department:</label>
                             <select w-tid="373">
                                 <option w-tid="375">All Departments</option>
@@ -43,7 +43,7 @@
                                 <option w-tid="381">Engineering</option>
                                 <option w-tid="383">Psychology</option>
                             </select>
-                        </div>
+                        </div> -->
                         
                         <!-- <div class="filter-group" w-tid="385">
                             <label w-tid="387">Year:</label>
@@ -65,7 +65,7 @@
                                 <option w-tid="413">Graduated</option>
                             </select>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
                     <div class="students-table" w-tid="875">
                         <table w-tid="877">
                             <thead w-tid="879">
@@ -73,9 +73,8 @@
                                     <th w-tid="883">Department ID</th>
                                     <th w-tid="885">Department Name</th>
                                     <th w-tid="887">Head of Department</th>
+                                    <th w-tid="895">Faculties</th>
                                     
-                                    <th w-tid="895">Status</th>
-                                    <th w-tid="897">Actions</th>
                                 </tr>
                             </thead>
                             <tbody w-tid="899">
@@ -84,12 +83,18 @@
                                     <td w-tid="905">Computer Science</td>
                                     <td w-tid="907">Dr. Robert Anderson</td>
                                     
-                                    <td w-tid="915"><span class="status active" w-tid="917">Active</span></td>
-                                    <td class="action-cell" w-tid="919">
+                                    <td w-tid="915">
+                                        <span w-tid="917"> Robert Anderson</span>
+                                        <div>Robert Anderson</div>
+                                        <div>Robert Anderson</div>
+                                        <div>Robert Anderson</div>
+                                        <div>Robert Anderson</div>
+                                        </td>
+                                    <!-- <td class="action-cell" w-tid="919">
                                         <button class="action-btn view-btn" w-tid="921"><i class="fas fa-eye" w-tid="923"></i></button>
                                         <button class="action-btn edit-btn" w-tid="925"><i class="fas fa-edit" w-tid="927"></i></button>
                                         <button class="action-btn delete-btn" w-tid="929"><i class="fas fa-trash" w-tid="931"></i></button>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 <!-- Add more department rows as needed -->
                             </tbody>

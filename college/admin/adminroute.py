@@ -15,10 +15,7 @@ def stdn():
     
     return render_template("student.html")
 
-@app.route("/admin/addstudent", methods = ["GET", "POST"])
-def addstdn():
-    #inser = addtablerow()
-    return render_template("addstudent.html")
+
     
 
 @app.route("/admin/faculty", methods = ["GET", "POST"])
@@ -43,11 +40,7 @@ def dept():
 
 
 
-@app.route("/admin/subject", methods = ["GET", "POST"])
-def sub():
-    #inser = addtablerow()
-    
-    return render_template("subject.html")
+
 
 
 @app.route("/admin/attendence", methods = ["GET", "POST"])

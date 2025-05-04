@@ -1,122 +1,147 @@
 {% from "macro/cmsnav.html" import cmsnav%}
 {%extends "admbase.html"%}
 {%block head%}
-    <title>College Management System</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>College Management System</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 {%endblock%}
 {%block content%}
-    <div class="container" w-tid="21">
-        <!-- Sidebar -->
-        {{cmsnav()}}
-        <main class="main-content" w-tid="111">
-            <header class="top-header" w-tid="113">
-                <div class="search-box" w-tid="115">
-                    <input type="text" placeholder="Search..." w-tid="117"/>
-                    <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
-                </div>
-                <div class="user-profile" w-tid="123">
-                    <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
-                    <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
-                    <div class="profile-img" w-tid="133">
-                        
-                        <i class="fas fa-user-circle" w-tid="135"></i>
-                    </div>
-                    <span class="username" w-tid="137">Admin User</span>
-                </div>
-            </header>
-            <!-- Dashboard Section -->
-            <div id="dashboard-page" class="content-section" w-tid="139">
-                <div class="dashboard" w-tid="141">
-                    <h1 w-tid="357">Students Management</h1>
-                    <div class="students-header" w-tid="359">
-                        <p w-tid="361">Manage all student information and academic records</p>
-                        <a style="text-decoration: none; color:white" href="/admin/student">
-                        <button id="cancel-add-student" class="back-button" w-tid="1515">
-                            
-                                <i class="fas fa-arrow-left" w-tid="1517"></i> Back to Students
-                            
-                        </button></a>
-                    </div>
-                    <div class="student-form-container" w-tid="1519">
-                        <form id="add-student-form" class="student-form" w-tid="1521">
-                            <div class="form-row" w-tid="1523">
-                                <div class="form-group" w-tid="1525">
-                                    <label for="new-firstName" w-tid="1527">First Name*</label>
-                                    <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
-                                </div>
-                                <div class="form-group" w-tid="1531">
-                                    <label for="new-lastName" w-tid="1533">Last Name*</label>
-                                    <input type="text" id="new-lastName" name="lastName" required="" w-tid="1535">
-                                </div>
-                            </div>
-                            
-                            <div class="form-row" w-tid="1537">
-                                <div class="form-group" w-tid="1539">
-                                    <label for="new-email" w-tid="1541">Email*</label>
-                                    <input type="email" id="new-email" name="email" required="" w-tid="1543">
-                                </div>
-                                <div class="form-group" w-tid="1545">
-                                    <label for="new-phone" w-tid="1547">Phone*</label>
-                                    <input type="tel" id="new-phone" name="phone" required="" w-tid="1549">
-                                </div>
-                            </div>
-                            
-                            <div class="form-row" w-tid="1551">
-                                <div class="form-group" w-tid="1553">
-                                    <label for="new-department" w-tid="1555">Department*</label>
-                                    <select id="new-department" name="department" required="" w-tid="1557"><option value="">Select Department</option><option value="Computer Science">Computer Science</option><option value="Business Admin">Business Admin</option><option value="Engineering">Engineering</option><option value="Psychology">Psychology</option><option value="Mathematics">Mathematics</option><option value="Physics">Physics</option><option value="Chemistry">Chemistry</option><option value="Biology">Biology</option><option value="Literature">Literature</option><option value="History">History</option></select>
-                                </div>
-                                <div class="form-group" w-tid="1561">
-                                    <label for="new-year" w-tid="1563">Year*</label>
-                                    <select id="new-year" name="year" required="" w-tid="1565"><option value="">Select Year</option><option value="First Year">First Year</option><option value="Second Year">Second Year</option><option value="Third Year">Third Year</option><option value="Fourth Year">Fourth Year</option></select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row" w-tid="1569">
-                                <div class="form-group" w-tid="1571">
-                                    <label for="new-dob" w-tid="1573">Date of Birth*</label>
-                                    <input type="date" id="new-dob" name="dob" required="" w-tid="1575">
-                                </div>
-                                <div class="form-group" w-tid="1577">
-                                    <label for="new-gender" w-tid="1579">Gender*</label>
-                                    <select id="new-gender" name="gender" required="" w-tid="1581">
-                                        <option value="" w-tid="1583">Select Gender</option>
-                                        <option value="male" w-tid="1585">Male</option>
-                                        <option value="female" w-tid="1587">Female</option>
-                                        <option value="other" w-tid="1589">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row" w-tid="1591">
-                                <div class="form-group full-width" w-tid="1593">
-                                    <label for="new-address" w-tid="1595">Address*</label>
-                                    <textarea id="new-address" name="address" rows="3" required="" w-tid="1597"></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="form-actions" w-tid="1599">
-                                <button type="button" id="cancel-add-student" class="cancel-btn" w-tid="1601">Cancel</button>
-                                <button type="submit" class="save-btn" w-tid="1603">Add Student</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="pagination" w-tid="601">
-                        <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
-                        <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
-                        <button class="active" w-tid="611">1</button>
-                        <button w-tid="613">2</button>
-                        <button w-tid="615">3</button>
-                        <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
-                        <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
-                    </div>
-                    
-                    
-                </div>
+<div class="container" w-tid="21">
+    <!-- Sidebar -->
+    {{cmsnav()}}
+    <main class="main-content" w-tid="111">
+        <header class="top-header" w-tid="113">
+            <div class="search-box" w-tid="115">
+                <input type="text" placeholder="Search..." w-tid="117" />
+                <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
             </div>
-        </main>
-    </div>
-    
+            <div class="user-profile" w-tid="123">
+                <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
+                <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
+                <div class="profile-img" w-tid="133">
+
+                    <i class="fas fa-user-circle" w-tid="135"></i>
+                </div>
+                <span class="username" w-tid="137">Admin User</span>
+            </div>
+        </header>
+        <!-- Dashboard Section -->
+        <div id="dashboard-page" class="content-section" w-tid="139">
+            <div class="dashboard" w-tid="141">
+                <h1 w-tid="357">Students Management</h1>
+                <div class="students-header" w-tid="359">
+                    <p w-tid="361">Manage all student information and academic records</p>
+                    <a style="text-decoration: none; color:white" href="/admin/student">
+                        <button id="cancel-add-student" class="back-button" w-tid="1515">
+
+                            <i class="fas fa-arrow-left" w-tid="1517"></i> Back to Students
+
+                        </button>
+                    </a>
+                </div>
+                <div class="student-form-container" w-tid="1519">
+                    <form id="add-student-form" class="student-form" w-tid="1521">
+                        <div class="form-row" w-tid="1523">
+                            <div class="form-group" w-tid="1525">
+                                <label for="new-firstName" w-tid="1527">Name*</label>
+                                <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                            </div>
+                            <div class="form-group" w-tid="1525">
+                                <label for="new-firstName" w-tid="1527">Roll*</label>
+                                <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                            </div>
+
+                        </div>
+
+                        <div class="form-row" w-tid="1537">
+                            <div class="form-group" w-tid="1539">
+                                <label for="new-email" w-tid="1541">Email*</label>
+                                <input type="email" id="new-email" name="email" required="" w-tid="1543">
+                            </div>
+                            <div class="form-group" w-tid="1545">
+                                <label for="new-phone" w-tid="1547">Phone*</label>
+                                <input type="tel" id="new-phone" name="phone" required="" w-tid="1549">
+                            </div>
+                        </div>
+
+                        <div class="form-row" w-tid="1551">
+                            <div class="form-group" w-tid="1553">
+                                <label for="new-department" w-tid="1555">Department*</label>
+                                <select id="new-department" name="department" required="" w-tid="1557">
+                                    <option value="">Select Department</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Business Admin">Business Admin</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Psychology">Psychology</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Literature">Literature</option>
+                                    <option value="History">History</option>
+                                </select>
+                            </div>
+                            <div class="form-group" w-tid="1561">
+                                <label for="new-year" w-tid="1563">Semester*</label>
+                                <select id="new-year" name="year" required="" w-tid="1565">
+                                    <option value="">Select Year</option>
+                                    <option value="First Year">First Semester</option>
+                                    <option value="Second Year">Second Semester</option>
+                                    <option value="Third Year">Third Semester</option>
+                                    <option value="Fourth Year">Fourth Semester</option>
+                                    <option value="First Year">Fifth Semester</option>
+                                    <option value="Second Year">Sixth Semester</option>
+                                    <option value="Third Year">Seventh Semester</option>
+                                    <option value="Fourth Year">Eighth Semester</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row" w-tid="1569">
+                            <div class="form-group" w-tid="1571">
+                                <label for="new-dob" w-tid="1573">Date of Birth*</label>
+                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575">
+                            </div>
+                            <div class="form-group" w-tid="1577">
+                                <label for="new-gender" w-tid="1579">Gender*</label>
+                                <select id="new-gender" name="gender" required="" w-tid="1581">
+                                    <option value="" w-tid="1583">Select Gender</option>
+                                    <option value="male" w-tid="1585">Male</option>
+                                    <option value="female" w-tid="1587">Female</option>
+                                    <option value="other" w-tid="1589">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row" w-tid="1591">
+                            <div class="form-group full-width" w-tid="1593">
+                                <label for="new-address" w-tid="1595">Address*</label>
+                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions" w-tid="1599">
+                            <button type="button" id="cancel-add-student" class="cancel-btn"
+                                w-tid="1601">Cancel</button>
+                            <button type="submit" class="save-btn" w-tid="1603">Add Student</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="pagination" w-tid="601">
+                    <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
+                    <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
+                    <button class="active" w-tid="611">1</button>
+                    <button w-tid="613">2</button>
+                    <button w-tid="615">3</button>
+                    <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
+                    <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+</div>
+
 {%endblock%}
