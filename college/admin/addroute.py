@@ -5,6 +5,8 @@ from flask import render_template, request, redirect, session, url_for
 
 @app.route("/admin/addstudent", methods = ["GET", "POST"])
 def addstdn():
+    form = request.form
+    print(form)
     #inser = addtablerow()
     return render_template("addstudent.html")
 
