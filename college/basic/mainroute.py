@@ -21,6 +21,6 @@ def news():
 def programs(): 
     return render_template("programs.html")
 
-@app.route("/login")
-def login(): 
+@app.route("/login", methods = ["GET", "POST"])
+def login():
     return render_template("login.html")

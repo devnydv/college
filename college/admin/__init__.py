@@ -4,3 +4,4 @@ admin = Blueprint("admin",__name__, template_folder='templates', static_folder='
 
 from college.admin import adminroute
 from college.admin import addroute
+from college.admin import admdb

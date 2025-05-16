@@ -49,32 +49,32 @@ document.querySelectorAll('.login-option').forEach(option => {
 });
 
 // Login form handling
-document.querySelectorAll('.login-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formId = this.closest('.login-option').id;
+// document.querySelectorAll('.login-form').forEach(form => {
+//     form.addEventListener('submit', function(e) {
+//         e.preventDefault();
+//         const formId = this.closest('.login-option').id;
         
-        // Basic validation - you would typically do this server-side
-        const id = this.querySelector('input[type="text"]').value;
-        const password = this.querySelector('input[type="password"]').value;
+//         // Basic validation - you would typically do this server-side
+//         const id = this.querySelector('input[type="text"]').value;
+//         const password = this.querySelector('input[type="password"]').value;
         
-        if (id && password) {
-            switch(formId) {
-                case 'student-login':
-                    window.location.href = 'student-profile.html';
-                    break;
-                case 'faculty-login':
-                    window.location.href = 'faculty-profile.html';
-                    break;
-                case 'admin-login':
-                    window.location.href = 'admin-profile.html';
-                    break;
-            }
-        } else {
-            alert('Please fill in all fields');
-        }
-    });
-});
+//         if (id && password) {
+//             switch(formId) {
+//                 case 'student-login':
+//                     window.location.href = 'student-profile.html';
+//                     break;
+//                 case 'faculty-login':
+//                     window.location.href = 'faculty-profile.html';
+//                     break;
+//                 case 'admin-login':
+//                     window.location.href = 'admin-profile.html';
+//                     break;
+//             }
+//         } else {
+//             alert('Please fill in all fields');
+//         }
+//     });
+// });
 
 // News filter functionality
 document.querySelectorAll('.filter-btn').forEach(btn => {

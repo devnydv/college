@@ -35,9 +35,9 @@
                 <div class="login-option" id="admin-login">
                     <i class="fas fa-user-shield"></i>
                     <h3>Admin Login</h3>
-                    <form class="login-form hidden">
-                        <input type="text" placeholder="Admin ID" required>
-                        <input type="password" placeholder="Password" required>
+                    <form class="login-form hidden" method="post" action="/login/admin">
+                        <input type="text" placeholder="Admin ID" name="id" required>
+                        <input type="password" placeholder="Password" name="pass" required>
                         <button type="submit">Login</button>
                     </form>
                 </div>
@@ -45,12 +45,12 @@
         </div>
     </main>
 
-    <script type="importmap">
+    <!-- <script type="importmap">
         {
             "imports": {
                 "config": "./config.js"
             }
         }
-    </script>
+    </script> -->
 
     {%endblock%}
