@@ -5,38 +5,59 @@ from flask import render_template, request, redirect, session, url_for
 
 @app.route("/admin", methods = ["GET", "POST"])
 def admin():
+    global logged 
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
-    
-    return render_template("dash.html")
+        return render_template("dash.html")
+    else:
+        return redirect(url_for("login"))
 
 @app.route("/admin/student", methods = ["GET", "POST"])
 def stdn():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("student.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("student.html")
-
-
+    
     
 
 @app.route("/admin/faculty", methods = ["GET", "POST"])
 def faculty():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("faculty.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("faculty.html")
 
 
 @app.route("/admin/courses", methods = ["GET", "POST"])
 def cours():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("courses.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("courses.html")
+    
 
 
 @app.route("/admin/department", methods = ["GET", "POST"])
 def dept():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("department.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("department.html")
+    
 
 
 
@@ -45,15 +66,25 @@ def dept():
 
 @app.route("/admin/attendence", methods = ["GET", "POST"])
 def attendence():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("attendence.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("attendence.html")
+    
 
 
 @app.route("/admin/notice", methods = ["GET", "POST"])
 def notice():
+    logged = 'user_id' in session
+    if logged:
     #inser = addtablerow()
+        return render_template("notice.html")
+    else:
+        return redirect(url_for("login"))
     
-    return render_template("notice.html")
+    
 
 
