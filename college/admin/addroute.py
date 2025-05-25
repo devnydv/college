@@ -14,6 +14,7 @@ def addstdn():
         semmester= data['year'],
         dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
         gender= data['gender'],
+        department= data['department'],
         address= data['address'])
         db.session.add(student)
         db.session.commit()

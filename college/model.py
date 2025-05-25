@@ -19,6 +19,7 @@ class Student(db.Model):
     semmester = db.Column(db.Integer, nullable=False)
     dob = db.Column(db.Date, nullable=False)
     gender = db.Column(db.String, nullable=False)
+    department = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
    
     def to_dict(self):
@@ -31,5 +32,6 @@ class Student(db.Model):
             "semmester": self.semmester,
             "dob": self.dob,
             'gender': self.gender,
+            'department': self.department,
             "address": self.address,
             }
