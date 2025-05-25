@@ -1,13 +1,22 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-
-
+from college.model import db, Student
+from datetime import datetime
 
 @app.route("/admin/addstudent", methods = ["GET", "POST"])
 def addstdn():
-    form = request.form
-    
-    
+    if request.method == "POST":
+        data = request.form
+        student = Student(name= data['name'],
+        roll= int(data['roll']),
+        email=data['email'],
+        phone= data['phone'],
+        semmester= data['year'],
+        dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
+        gender= data['gender'],
+        address= data['address'])
+        db.session.add(student)
+        db.session.commit()
     return render_template("addstudent.html")
 
 @app.route("/admin/addfaculty", methods = ["GET", "POST"])
