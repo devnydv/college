@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student
+from college.model import db, Student, Faculty
 from datetime import datetime
 
 @app.route("/admin/addstudent", methods = ["GET", "POST"])
@@ -22,6 +22,22 @@ def addstdn():
 
 @app.route("/admin/addfaculty", methods = ["GET", "POST"])
 def addfaculty():
+    if request.method == "POST":
+        data = request.form
+        student = Faculty(name= data['name'],
+        facultyid= int(data['id']),
+        email=data['email'],
+        phone= data['phone'],
+        education= data['education'],
+        department= data['department'],
+        role= data['role'],
+        dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
+        gender= data['gender'],
+        address= data['address'])
+
+        db.session.add(student)
+        db.session.commit()
+        print(data)
     #inser = addtablerow()
     return render_template("addfaculty.html")
 

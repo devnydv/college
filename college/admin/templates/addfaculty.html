@@ -40,21 +40,22 @@
                         </button></a>
                     </div>
                     <div class="student-form-container" w-tid="1519">
-                        <form id="add-student-form" class="student-form" w-tid="1521">
+                        <form id="add-student-form" method="POST" action="/admin/addfaculty" class="student-form" w-tid="1521">
                             <div class="form-row" w-tid="1523">
                                 <div class="form-group" w-tid="1525">
-                                    <label for="new-firstName" w-tid="1527">Name*</label>
-                                    <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                                    <label for="name" w-tid="1527">Name*</label>
+                                    
+                                    <input type="text" id="new-firstName" name="name" required="" w-tid="1529" >
                                 </div>
                                 <div class="form-group" w-tid="1525">
-                                    <label for="new-firstName" w-tid="1527">Faculty ID*</label>
-                                    <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                                    <label for="name" w-tid="1527">Faculty ID*</label>
+                                    <input type="text" id="new-firstName" name="id" required="" w-tid="1529">
                                 </div>
                                 
                             </div>
                             <div class="form-group" w-tid="1525">
-                                <label for="new-firstName" w-tid="1527">Education*</label>
-                                <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                                <label for="education" w-tid="1527">Education*</label>
+                                <input type="text" id="new-firstName" name="education" required="" w-tid="1529">
                             </div>
                             <div class="form-row" w-tid="1537">
                                 <div class="form-group" w-tid="1539">
@@ -71,20 +72,24 @@
                                 <div class="form-group" w-tid="1553">
                                     <label for="new-department" w-tid="1555">Department*</label>
                                     <select id="new-department" name="department" required="" w-tid="1557"><option value="">Select Department</option>
-                                        <option value="Computer Science">Computer Science</option><option value="Business Admin">Business Admin</option>
-                                        <option value="Engineering">Engineering</option><option value="Psychology">Psychology</option>
-                                        <option value="Mathematics">Mathematics</option><option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option><option value="Biology">Biology</option>
-                                        <option value="Literature">Literature</option><option value="History">History</option></select>
+                                        <option value="Computer Science">Computer Science</option>
+                                    <option value="Business Admin">Mechanical Engineering</option>
+                                    <option value="Engineering">Civil Engineering</option>
+                                    <option value="Psychology">Electrical Engineering</option>
+                                    <option value="Mathematics">Electronics and Cummunication</option>
+                                    <option value="Physics">Chemical Engineering</option>
+                                    <option value="Chemistry">Aerospace Engineering</option>
+                                    <option value="Biology">Information Technology</option>
+                                    </select>
                                 </div>
                                 <div class="form-group" w-tid="1561">
-                                    <label for="new-year" w-tid="1563">Designation*</label>
-                                    <select id="new-year" name="year" required="" w-tid="1565"><option value="">Select Year</option>
-                                        <option value="First Year">Head of the Department</option>
-                                        <option value="Second Year">Associate Professor</option>
-                                        <option value="Third Year">Assistant Professor</option>
-                                        <option value="Fourth Year">Senior Technician</option>
-                                        <option value="First Year">Junior Technician</option>
+                                    <label for="role" w-tid="1563">Designation*</label>
+                                    <select id="role" name="role" required="" w-tid="1565"><option value="">Select Role</option>
+                                        <option value="Head of the Department">Head of the Department</option>
+                                        <option value="Associate Professor">Associate Professor</option>
+                                        <option value="Assistant Professor">Assistant Professor</option>
+                                        <option value="Senior Technician">Senior Technician</option>
+                                        <option value="Junior Technician">Junior Technician</option>
                                     </select>
                                 </div>
                             </div>
@@ -118,15 +123,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="pagination" w-tid="601">
-                        <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
-                        <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
-                        <button class="active" w-tid="611">1</button>
-                        <button w-tid="613">2</button>
-                        <button w-tid="615">3</button>
-                        <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
-                        <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
-                    </div>
+                    
                     
                     
                 </div>

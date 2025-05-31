@@ -35,3 +35,32 @@ class Student(db.Model):
             'department': self.department,
             "address": self.address,
             }
+    
+
+class Faculty(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    facultyid = db.Column(db.Integer, nullable=False)
+    education = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    phone = db.Column(db.Integer, nullable=False)
+    department = db.Column(db.Integer, nullable=False)
+    role = db.Column(db.Integer, nullable=False)
+    dob = db.Column(db.Date, nullable=False)
+    gender = db.Column(db.String, nullable=False)
+    address = db.Column(db.String, nullable=False)
+   
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "username": self.name,
+            "facultyid": self.facultyid,
+            "education": self.education,
+            "email": self.email,
+            "phone": self.phone,
+            'department': self.department,
+            'role': self.role,
+            "dob": self.dob,
+            'gender': self.gender,
+            "address": self.address,
+            }
