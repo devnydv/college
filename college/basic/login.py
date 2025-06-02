@@ -17,9 +17,10 @@ def admlogin():
 
     users = admin.query.all()
     user = admin.query.filter_by(username="admin").first()
+    
     if password == user.password and username == user.username:
         session['user_id'] = user.username
-        print(session["user_id"])
+        
         return redirect(url_for("admin"))
     else:
         return redirect(url_for("login"))

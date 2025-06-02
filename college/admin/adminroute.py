@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student
+from college.model import db, Student, Faculty
 
 
 @app.route("/admin", methods = ["GET", "POST"])
@@ -33,8 +33,9 @@ def stdn():
 def faculty():
     logged = 'user_id' in session
     if logged:
+        users = Faculty.query.all()
     #inser = addtablerow()
-        return render_template("faculty.html")
+        return render_template("faculty.html", faculties= users)
     else:
         return redirect(url_for("login"))
     
