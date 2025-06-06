@@ -3,6 +3,7 @@ from college.basic import basic
 from college.student import student
 from college.admin import admin
 
+
 app.register_blueprint(basic)
 app.register_blueprint(student)
 app.register_blueprint(admin)

@@ -16,7 +16,7 @@ class Student(db.Model):
     roll = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
-    semmester = db.Column(db.Integer, nullable=False)
+    semester = db.Column(db.Integer, nullable=False)
     dob = db.Column(db.Date, nullable=False)
     gender = db.Column(db.String, nullable=False)
     department = db.Column(db.String, nullable=False)
