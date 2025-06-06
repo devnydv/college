@@ -79,14 +79,10 @@
                                 <label for="new-department" w-tid="1555">Department*</label>
                                 <select id="new-department" name="department" required="" w-tid="1557">
                                     <option value="">Select Department</option>
-                                    <option value="Computer Science">Computer Science</option>
-                                    <option value="Business Admin">Mechanical Engineering</option>
-                                    <option value="Engineering">Civil Engineering</option>
-                                    <option value="Psychology">Electrical Engineering</option>
-                                    <option value="Mathematics">Electronics and Cummunication</option>
-                                    <option value="Physics">Chemical Engineering</option>
-                                    <option value="Chemistry">Aerospace Engineering</option>
-                                    <option value="Biology">Information Technology</option>
+                                    {%for dep in departments%}
+                                    <option {%if dep == data.department%}selected{%endif%} value="{{dep}}">{{dep}}</option>
+                                    {%endfor%}
+                                    
                                 </select>
                             </div>
                             <div class="form-group" w-tid="1561">
@@ -105,7 +101,7 @@
                             <div class="form-group" w-tid="1571">
                                 <label for="new-dob" w-tid="1573">Date of Birth*</label>
                                 <input type="date" id="new-dob" name="dob" required="" w-tid="1575"
-                                value="{{data.dob}}>
+                                value="{{data.dob}}">
                             </div>
                             <div class="form-group" w-tid="1577">
                                 <label for="new-gender" w-tid="1579">Gender*</label>

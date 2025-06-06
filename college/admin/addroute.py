@@ -2,6 +2,10 @@ from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty
 from datetime import datetime
+from tempdata import semester, gender, departments
+
+allsem =  semester()
+dep = departments()
 
 @app.route("/admin/addstudent", methods = ["GET", "POST"])
 def addstdn():
@@ -18,7 +22,7 @@ def addstdn():
         address= data['address'])
         db.session.add(student)
         db.session.commit()
-    return render_template("addstudent.html", data = False)
+    return render_template("addstudent.html", data = False, allsem = allsem, departments = dep)
 
 @app.route("/admin/addfaculty", methods = ["GET", "POST"])
 def addfaculty():
