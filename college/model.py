@@ -47,6 +47,7 @@ class Faculty(db.Model):
     department = db.Column(db.Integer, nullable=False)
     role = db.Column(db.Integer, nullable=False)
     dob = db.Column(db.Date, nullable=False)
+    doj = db.Column(db.Date, nullable=False)
     gender = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
    
@@ -61,6 +62,7 @@ class Faculty(db.Model):
             'department': self.department,
             'role': self.role,
             "dob": self.dob,
+            "doj": self.doj,
             'gender': self.gender,
             "address": self.address,
             }

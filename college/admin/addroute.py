@@ -15,7 +15,7 @@ def addstdn():
         roll= int(data['roll']),
         email=data['email'],
         phone= data['phone'],
-        semmester= data['year'],
+        semester= data['year'],
         dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
         gender= data['gender'],
         department= data['department'],
@@ -36,14 +36,14 @@ def addfaculty():
         department= data['department'],
         role= data['role'],
         dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
+        doj= datetime.strptime(data['doj'], '%Y-%m-%d').date(),
         gender= data['gender'],
         address= data['address'])
-
         db.session.add(student)
         db.session.commit()
         print(data)
     #inser = addtablerow()
-    return render_template("addfaculty.html")
+    return render_template("addfaculty.html", data =False, departments = dep)
 
 @app.route("/admin/addcourse", methods = ["GET", "POST"])
 def addcourse():

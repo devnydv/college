@@ -1,7 +1,9 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty
+from tempdata import departments
 
+dep = departments()
 
 @app.route("/admin", methods = ["GET", "POST"])
 def admin():
@@ -9,7 +11,7 @@ def admin():
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        
+        print(dep)
         return render_template("dash.html")
     else:
         return redirect(url_for("login"))
@@ -20,9 +22,7 @@ def stdn():
     if logged:
     #inser = addtablerow()
         users = Student.query.all()
-        print(users)
-        
-        return render_template("student.html", students= users)
+        return render_template("student.html", students= users, departments= dep)
     else:
         return redirect(url_for("login"))
     

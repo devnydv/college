@@ -120,13 +120,14 @@
                         <div class="form-row" w-tid="1591">
                             <div class="form-group full-width" w-tid="1593">
                                 <label for="new-address" w-tid="1595">Address*</label>
-                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597"></textarea>
+                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597" >{{data.address}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-actions" w-tid="1599">
-                            <button type="button" id="cancel-add-student" class="cancel-btn"
-                                w-tid="1601">Cancel</button>
+                            <a href="/admin/student"><button type="button" id="cancel-add-student" class="cancel-btn"
+                                w-tid="1601">Cancel</button></a>
+                            
                             {%if data%}
                             <button type="submit" class="save-btn" w-tid="1603">Update Student</button>
                             {%else%}
