@@ -2,8 +2,9 @@ from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty
 from datetime import datetime
-from tempdata import semester, departments
+from tempdata import semester, departments, designations
 
+designs = designations()
 
 @app.route("/admin/update/student/<id>", methods = ["GET", "POST"])
 def updatestdn(id):
@@ -16,4 +17,8 @@ def updatestdn(id):
 
 @app.route("/admin/update/faculty/<id>", methods = ["GET", "POST"])
 def updatefaculty(id):
-    return "l"
+    sem = semester()
+    dep = departments()
+    faculty = Faculty.query.get(id)
+    
+    return render_template("addfaculty.html", data= faculty, departments= dep, designations = designs)

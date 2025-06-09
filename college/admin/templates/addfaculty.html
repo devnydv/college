@@ -34,7 +34,6 @@
                     <p w-tid="361">Manage all student information and academic records</p>
                     <a style="text-decoration: none; color:white" href="/admin/faculty">
                         <button id="cancel-add-student" class="back-button" w-tid="1515">
-
                             <i class="fas fa-arrow-left" w-tid="1517"></i> Back to Faculty
 
                         </button></a>
@@ -45,33 +44,34 @@
                         <div class="form-row" w-tid="1523">
                             <div class="form-group" w-tid="1525">
                                 <label for="name" w-tid="1527">Name*</label>
-
-                                <input type="text" id="new-firstName" name="name" required="" w-tid="1529">
+                                <input type="text" id="new-firstName" name="name" required="" w-tid="1529" value="{{data.name}}">
                             </div>
                             <div class="form-group" w-tid="1525">
                                 <label for="name" w-tid="1527">Faculty ID*</label>
-                                <input type="text" id="new-firstName" name="id" required="" w-tid="1529">
+                                <input type="text" id="new-firstName" name="id" required="" w-tid="1529"
+                                value="{{data.facultyid}}">
                             </div>
 
                         </div>
                         <div class="form-row" w-tid="1523">
                             <div class="form-group" w-tid="1525">
                                 <label for="education" w-tid="1527">Education*</label>
-                                <input type="text" id="new-firstName" name="education" required="" w-tid="1529">
+                                <input type="text" id="new-firstName" name="education" required="" w-tid="1529" value="{{data.education}}">
                             </div>
                             <div class="form-group" w-tid="1571">
                                 <label for="new-dob" w-tid="1573">Date of Birth*</label>
-                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575">
+                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575" value="{{data.dob}}">
                             </div>
                         </div>
                         <div class="form-row" w-tid="1537">
                             <div class="form-group" w-tid="1539">
                                 <label for="new-email" w-tid="1541">Email*</label>
-                                <input type="email" id="new-email" name="email" required="" w-tid="1543">
+                                <input type="email" id="new-email" name="email" required="" w-tid="1543"
+                                value="{{data.email}}">
                             </div>
                             <div class="form-group" w-tid="1545">
                                 <label for="new-phone" w-tid="1547">Phone*</label>
-                                <input type="tel" id="new-phone" name="phone" required="" w-tid="1549">
+                                <input type="tel" id="new-phone" name="phone" required="" w-tid="1549" value="{{data.phone}}">
                             </div>
                         </div>
 
@@ -80,7 +80,6 @@
                                 <label for="new-department" w-tid="1555">Department*</label>
                                 <select id="new-department" name="department" required="" w-tid="1557">
                                     <option value="">Select Department</option>
-                                    <option value="Computer Science">Computer Science</option>
                                     {%for dep in departments%}
                                     <option {%if dep==data.department%}selected{%endif%} value="{{dep}}">{{dep}}
                                     </option>
@@ -91,11 +90,10 @@
                                 <label for="role" w-tid="1563">Designation*</label>
                                 <select id="role" name="role" required="" w-tid="1565">
                                     <option value="">Select Role</option>
-                                    <option value="Head of the Department">Head of the Department</option>
-                                    <option value="Associate Professor">Associate Professor</option>
-                                    <option value="Assistant Professor">Assistant Professor</option>
-                                    <option value="Senior Technician">Senior Technician</option>
-                                    <option value="Junior Technician">Junior Technician</option>
+                                    {%for des in designations%}
+                                    <option {%if des==data.role%}selected{%endif%} value="{{des}}">{{des}}
+                                    </option>
+                                    {%endfor%}
                                 </select>
                             </div>
                         </div>
@@ -103,15 +101,17 @@
                         <div class="form-row" w-tid="1569">
                             <div class="form-group" w-tid="1571">
                                 <label for="doj" w-tid="1573">Date of Joining*</label>
-                                <input type="date" id="doj" name="doj" required="" w-tid="1575">
+                                <input type="date" id="doj" name="doj" required="" w-tid="1575" value="{{data.doj}}">
                             </div>
                             <div class="form-group" w-tid="1577">
                                 <label for="new-gender" w-tid="1579">Gender*</label>
                                 <select id="new-gender" name="gender" required="" w-tid="1581">
                                     <option value="" w-tid="1583">Select Gender</option>
-                                    <option value="male" w-tid="1585">Male</option>
-                                    <option value="female" w-tid="1587">Female</option>
-                                    <option value="other" w-tid="1589">Other</option>
+                                    {%set genders = ['Male', 'Female', 'Other']%}
+                                    {%for gender in genders%}
+                                    <option value="{{gender}}" {%if gender == data.gender%}selected{%endif%} w-tid="1585">{{gender}}</option>
+                                    {%endfor%}
+                                    
                                 </select>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <div class="form-row" w-tid="1591">
                             <div class="form-group full-width" w-tid="1593">
                                 <label for="new-address" w-tid="1595">Address*</label>
-                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597"></textarea>
+                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597">{{data.address}}</textarea>
                             </div>
                         </div>
 

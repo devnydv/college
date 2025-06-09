@@ -12,5 +12,8 @@ def departments():
 
 
 
+def designations():
+    return ["Head of the Department", "Associate Professor", "Assistant Professor", "Senior Technician", "Junior Technician"]
+
 
 

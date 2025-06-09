@@ -2,11 +2,11 @@ from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty
 from datetime import datetime
-from tempdata import semester, gender, departments
+from tempdata import semester, gender, departments, designations
 
 allsem =  semester()
 dep = departments()
-
+designs = designations()
 @app.route("/admin/addstudent", methods = ["GET", "POST"])
 def addstdn():
     if request.method == "POST":
@@ -41,9 +41,9 @@ def addfaculty():
         address= data['address'])
         db.session.add(student)
         db.session.commit()
-        print(data)
+        print(designs)
     #inser = addtablerow()
-    return render_template("addfaculty.html", data =False, departments = dep)
+    return render_template("addfaculty.html", data =False, departments = dep, designations = designs)
 
 @app.route("/admin/addcourse", methods = ["GET", "POST"])
 def addcourse():
