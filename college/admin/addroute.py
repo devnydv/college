@@ -22,6 +22,7 @@ def addstdn():
         address= data['address'])
         db.session.add(student)
         db.session.commit()
+        return redirect(url_for('stdn'))
     return render_template("addstudent.html", data = False, allsem = allsem, departments = dep)
 
 @app.route("/admin/addfaculty", methods = ["GET", "POST"])

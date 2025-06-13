@@ -6,3 +6,4 @@ from college.admin import adminroute
 from college.admin import addroute
 from college.admin import admdb
 from college.admin import update
+from college.admin import delete

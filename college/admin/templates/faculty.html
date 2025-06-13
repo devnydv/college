@@ -94,7 +94,9 @@
                                             <a href="/admin/update/faculty/{{faculty.id}}">
                                             <i class="fas fa-edit" w-tid="467"></i>
                                         </a>
-                                        <button class="action-btn delete-btn" w-tid="721"><i class="fas fa-trash" w-tid="723"></i></button>
+                                        <button class="action-btn delete-btn" w-tid="721">
+                                            <a href="/admin/faculty/delete/{{faculty.id}}"><i class="fas fa-trash" w-tid="723"></i></a>
+                                        </button>
                                     </td>
                                 </tr>
                                 {%endfor%}
