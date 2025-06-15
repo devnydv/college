@@ -11,7 +11,7 @@ def admin():
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        print(dep)
+        
         return render_template("dash.html")
     else:
         return redirect(url_for("login"))
