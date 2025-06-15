@@ -31,6 +31,7 @@ def addstdn():
 
 @app.route("/admin/addfaculty", methods = ["GET", "POST"])
 def addfaculty():
+    logged = 'user_id' in session
     if logged:
         if request.method == "POST":
             data = request.form
