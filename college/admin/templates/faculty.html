@@ -43,13 +43,13 @@
                     <div class="student-filters" w-tid="639">
                         <div class="filter-group" w-tid="641">
                             <label w-tid="643">Department:</label>
-                            <select w-tid="645">
-                                <option w-tid="647">All Departments</option>
-                                <option w-tid="649">Computer Science</option>
-                                <option w-tid="651">Business Admin</option>
-                                <option w-tid="653">Engineering</option>
-                                <option w-tid="655">Psychology</option>
-                            </select>
+                            <select w-tid="373">
+                            <option w-tid="375">All Departments</option>
+                            {%for dep in departments%}
+                            {{dep}}
+                            <option value="{{dep}}">{{dep}}</option>
+                            {%endfor%}
+                        </select>
                         </div>
                         
                         <!-- <div class="filter-group" w-tid="657">
