@@ -37,11 +37,11 @@
                         <div class="filter-group" w-tid="1753">
                             <label w-tid="1755">Department:</label>
                             <select w-tid="1757">
-                                <option w-tid="1759">All Departments</option>
-                                <option w-tid="1761">Computer Science</option>
-                                <option w-tid="1763">Business Admin</option>
-                                <option w-tid="1765">Engineering</option>
-                                <option w-tid="1767">Psychology</option>
+                                <option w-tid="375">All Departments</option>
+                            {%for dep in departments%}
+                            {{dep}}
+                            <option value="{{dep}}">{{dep}}</option>
+                            {%endfor%}
                             </select>
                         </div>
                         
@@ -93,7 +93,7 @@
                                         <button class="action-btn delete-btn" w-tid="1855"><i class="fas fa-trash" w-tid="1857"></i></button>
                                     </td> -->
                                 </tr>
-                                
+                               
                                
                                 
                                 

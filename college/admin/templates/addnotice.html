@@ -34,18 +34,20 @@
                         <p w-tid="361">Notice title and description</p>
                         <a style="text-decoration: none; color:white" href="/admin/notice">
                         <button id="cancel-add-student" class="back-button" w-tid="1515">
-                            
                                 <i class="fas fa-arrow-left" w-tid="1517"></i> Back to Notice
-                            
                         </button></a>
                     </div>
                     <div class="student-form-container" w-tid="1519">
-                        <form id="add-student-form" class="student-form" w-tid="1521">
+                        <form id="add-student-form" method="POST" action="/admin/addnotice" class="student-form" w-tid="1521">
                             <div class="form-row" w-tid="1523">
                                 <div class="form-group" w-tid="1525">
                                     <label for="new-firstName" w-tid="1527">Title*</label>
                                     <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
                                 </div>
+                                <div class="form-group" w-tid="1571">
+                                <label for="new-dob" w-tid="1573">Date of Birth*</label>
+                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575" value="">
+                            </div>
                             </div>
                             
                             

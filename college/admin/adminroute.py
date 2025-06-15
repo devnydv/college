@@ -46,7 +46,7 @@ def cours():
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        return render_template("courses.html")
+        return render_template("courses.html", departments= dep)
     else:
         return redirect(url_for("login"))
     

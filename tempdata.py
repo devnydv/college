@@ -9,9 +9,6 @@ def departments():
     departments = ['Computer Science', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Electronics and Cummunication', 'Chemical Engineering', 'Aerospace Engineering', 'Information Technology']
     return departments
 
-
-
-
 def designations():
     return ["Head of the Department", "Associate Professor", "Assistant Professor", "Senior Technician", "Junior Technician"]
 
