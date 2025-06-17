@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty
+from college.model import db, Student, Faculty, Notice
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
 
@@ -54,6 +54,20 @@ def addfaculty():
     return  redirect(url_for("login"))
 
 
+@app.route("/admin/addnotice", methods = ["GET", "POST"])
+def addnotice():
+    logged = 'user_id' in session
+    if logged:
+        if request.method == "POST":
+            data = request.form
+            notice = Notice(title=data['title'],
+                            content=data['content'],
+                            date=datetime.now())
+            db.session.add(notice)
+            db.session.commit()
+            return redirect(url_for("notices"))
+    return render_template("addnotice.html")
+
 @app.route("/admin/addcourse", methods = ["GET", "POST"])
 def addcourse():
     #inser = addtablerow()
@@ -71,7 +85,3 @@ def addatt():
     #inser = addtablerow()
     return render_template("adddepartment.html")
 
-@app.route("/admin/addnotice", methods = ["GET", "POST"])
-def addnotice():
-    #inser = addtablerow()
-    return render_template("addnotice.html")

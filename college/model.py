@@ -66,3 +66,16 @@ class Faculty(db.Model):
             'gender': self.gender,
             "address": self.address,
             }
+
+class Notice(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.String, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "content": self.content,
+            "date": self.date
+        }
