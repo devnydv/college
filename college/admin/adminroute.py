@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty
+from college.model import db, Student, Faculty, Notice
 from tempdata import departments
 
 dep = departments()
@@ -85,8 +85,9 @@ def attendence():
 def notice():
     logged = 'user_id' in session
     if logged:
-    #inser = addtablerow()
-        return render_template("notice.html")
+        notices = Notice.query.all()
+        
+        return render_template("notice.html", notices=notices, data= False)
     else:
         return redirect(url_for("login"))
     

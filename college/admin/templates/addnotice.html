@@ -38,30 +38,39 @@
                         </button></a>
                     </div>
                     <div class="student-form-container" w-tid="1519">
+                        {%if data%}
+                        <form id="add-student-form" method="POST" action="/admin/update/notice/{{data.id}}" class="student-form"
+                        w-tid="1521">
+                        {%else%}
                         <form id="add-student-form" method="POST" action="/admin/addnotice" class="student-form" w-tid="1521">
+                            {%endif%}
                             <div class="form-row" w-tid="1523">
                                 <div class="form-group" w-tid="1525">
-                                    <label for="new-firstName" w-tid="1527">Title*</label>
-                                    <input type="text" id="new-firstName" name="firstName" required="" w-tid="1529">
+                                    <label for="title" w-tid="1527">Title*</label>
+                                    <input type="text" id="title" name="title" required="" w-tid="1529" value="{{ data.title }}">
                                 </div>
-                                <div class="form-group" w-tid="1571">
+                                <!-- <div class="form-group" w-tid="1571">
                                 <label for="new-dob" w-tid="1573">Date of Birth*</label>
-                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575" value="">
-                            </div>
+                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575" value=""> 
+                            </div>-->
                             </div>
                             
                             
                             
                             <div class="form-row" w-tid="1591">
                                 <div class="form-group full-width" w-tid="1593">
-                                    <label for="new-address" w-tid="1595">Description*</label>
-                                    <textarea id="new-address" name="address" rows="3" required="" w-tid="1597"></textarea>
+                                    <label for="content" w-tid="1595">Description*</label>
+                                    <textarea id="content" name="content" rows="3" required="" w-tid="1597">{{ data.content }}</textarea>
                                 </div>
                             </div>
                             
                             <div class="form-actions" w-tid="1599">
-                                <button type="button" id="cancel-add-student" class="cancel-btn" w-tid="1601">Cancel</button>
-                                <button type="submit" class="save-btn" w-tid="1603">Add Notice</button>
+                                <a href="/admin/notice"><button type="button" id="cancel-add-student" class="cancel-btn" w-tid="1601">Cancel</button></a>
+                                {%if data%}
+                            <button type="submit" class="save-btn" w-tid="1603">Update Notice</button>
+                            {%else%}
+                            <button type="submit" class="save-btn" w-tid="1603">Add Notice</button>
+                            {%endif%}
                             </div>
                         </form>
                     </div>

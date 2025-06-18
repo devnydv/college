@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty
+from college.model import db, Student, Faculty, Notice
 from datetime import datetime
 from tempdata import semester, departments, designations
 
@@ -24,8 +24,8 @@ def updatestdn(id):
         student.department= data['department']
         student.address= data['address']
         db.session.commit()
-        url_for("stdn")
-    
+        return redirect(url_for("stdn"))
+
     student = Student.query.get(id)
     
     return render_template("addstudent.html", data= student, allsem = sem, departments= dep)
@@ -49,6 +49,19 @@ def updatefaculty(id):
         faculty.gender = data['gender']
         faculty.address = data['address']
         db.session.commit()
-        url_for("faculty")
+        return redirect(url_for("faculty"))
     faculty = Faculty.query.get(id)
     return render_template("addfaculty.html", data= faculty, departments= dep, designations = designs)
+
+
+@app.route("/admin/update/notice/<id>", methods = ["GET", "POST"])
+def updatenotice(id):
+    if request.method == "POST":
+        data = request.form
+        notice = Notice.query.get(id)
+        notice.title = data['title']
+        notice.content = data['content']
+        db.session.commit()
+        return redirect(url_for("notice"))
+    notice = Notice.query.get(id)
+    return render_template("addnotice.html", data= notice)

@@ -60,13 +60,14 @@ def addnotice():
     if logged:
         if request.method == "POST":
             data = request.form
-            notice = Notice(title=data['title'],
-                            content=data['content'],
-                            date=datetime.now())
+           
+            notice = Notice(title= data['title'],
+            content= data['content'],
+            date=datetime.now().replace(microsecond=0))
             db.session.add(notice)
             db.session.commit()
-            return redirect(url_for("notices"))
-    return render_template("addnotice.html")
+            return redirect(url_for("notice"))
+    return render_template("addnotice.html", data = False)
 
 @app.route("/admin/addcourse", methods = ["GET", "POST"])
 def addcourse():
