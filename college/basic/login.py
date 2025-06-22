@@ -1,7 +1,7 @@
 from college import app
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask import request, jsonify
-from college.model import db, admin
+from college.model import db, admin, Student, Faculty
 
 
 @app.route("/login/admin", methods = ["GET", "POST"])
@@ -25,3 +25,37 @@ def admlogin():
     else:
         return redirect(url_for("login"))
     
+
+@app.route("/login/student", methods = ["GET", "POST"])
+def student_login():
+    if request.method == "POST":
+        email = request.form["email"]
+        phone = request.form["phone"]
+        
+        user = Student.query.filter_by(email=email).first()
+        if user:
+            session['student'] = user.id
+            print(user.phone) 
+
+            return redirect(url_for("student_profile", id=user.id))
+        else:
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+@app.route("/login/faculty", methods = ["GET", "POST"])
+def faculty_login():
+    if request.method == "POST":
+        email = request.form["email"]
+        phone = request.form["phone"]
+
+        user = Faculty.query.filter_by(email=email).first()
+        if user:
+            session['faculty'] = user.id
+            print(user.phone) 
+
+            return redirect(url_for("faculty_profile", id=user.id))
+        else:
+            return redirect(url_for("login"))
+
+    return render_template("login.html")

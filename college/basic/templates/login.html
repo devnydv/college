@@ -15,9 +15,9 @@
                 <div class="login-option" id="student-login">
                     <i class="fas fa-user-graduate"></i>
                     <h3>Student Login</h3>
-                    <form class="login-form hidden">
-                        <input type="text" placeholder="Student ID" required>
-                        <input type="password" placeholder="Password" required>
+                    <form class="login-form hidden" method="post" action="/login/student">
+                        <input type="text" placeholder="Email" name="email" required>
+                        <input type="password" placeholder="Phone" name="phone" required>
                         <button type="submit">Login</button>
                     </form>
                 </div>
@@ -25,9 +25,9 @@
                 <div class="login-option" id="faculty-login">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>Faculty Login</h3>
-                    <form class="login-form hidden">
-                        <input type="text" placeholder="Faculty ID" required>
-                        <input type="password" placeholder="Password" required>
+                    <form class="login-form hidden" method="post" action="/login/faculty">
+                        <input type="text" placeholder="Email" name="email" required>
+                        <input type="password" placeholder="Phone" name="phone" required>
                         <button type="submit">Login</button>
                     </form>
                 </div>
