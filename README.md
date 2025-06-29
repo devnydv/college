@@ -1,0 +1,1 @@
+collage management system using Flask and sql-alchemy

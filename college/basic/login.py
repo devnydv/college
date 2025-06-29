@@ -54,7 +54,7 @@ def faculty_login():
         user = Faculty.query.filter_by(email=email).first()
         if user:
             session['faculty'] = user.id
-            print(user.phone) 
+             
 
             return redirect(url_for("faculty_profile", id=user.id))
         else:
