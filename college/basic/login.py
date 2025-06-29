@@ -24,12 +24,13 @@ def admlogin():
         
             return redirect(url_for("admin"))
         else:
-            return redirect(url_for("login"))
-    
+            return redirect(url_for("login", message="Invalid credentials"))
+
     return redirect(url_for("login"))
 
 @app.route("/login/student", methods = ["GET", "POST"])
 def student_login():
+    
     if request.method == "POST":
         email = request.form["email"]
         phone = request.form["phone"]
@@ -41,7 +42,7 @@ def student_login():
 
             return redirect(url_for("student_profile", id=user.id))
         else:
-            return redirect(url_for("login"))
+            return redirect(url_for("login", message="Invalid credentials"))
 
     return render_template("login.html")
 
@@ -54,10 +55,8 @@ def faculty_login():
         user = Faculty.query.filter_by(email=email).first()
         if user:
             session['faculty'] = user.id
-             
-
             return redirect(url_for("faculty_profile", id=user.id))
         else:
-            return redirect(url_for("login"))
+            return redirect(url_for("login", message="Invalid credentials"))
 
     return render_template("login.html")

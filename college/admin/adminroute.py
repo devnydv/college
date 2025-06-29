@@ -2,17 +2,21 @@ from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty, Notice
 from tempdata import departments
+from sqlalchemy import desc
 
 dep = departments()
 
 @app.route("/admin", methods = ["GET", "POST"])
 def admin():
-    global logged 
+    total_student = Student.query.count()
+    total_faculty = Faculty.query.count()
+    notices = Notice.query.order_by(desc(Notice.id)).limit(3).all()
+    print(notices)
+    global logged
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        
-        return render_template("dash.html")
+        return render_template("dash.html", total_student=total_student, total_faculty=total_faculty, notices=notices, departments=dep)
     else:
         return redirect(url_for("login"))
 
@@ -35,7 +39,7 @@ def faculty():
     if logged:
         users = Faculty.query.all()
     #inser = addtablerow()
-        return render_template("faculty.html", faculties= users)
+        return render_template("faculty.html", faculties= users, departments= dep)
     else:
         return redirect(url_for("login"))
     

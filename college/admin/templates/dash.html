@@ -38,14 +38,14 @@
                         <div class="stat-card" w-tid="147">
                             <div class="stat-icon" w-tid="149"><i class="fas fa-user-graduate" w-tid="151"></i></div>
                             <div class="stat-details" w-tid="153">
-                                <h3 w-tid="155">2,500</h3>
+                                <h3 w-tid="155">{{total_student}}</h3>
                                 <p w-tid="157">Students</p>
                             </div>
                         </div>
                         <div class="stat-card" w-tid="159">
                             <div class="stat-icon" w-tid="161"><i class="fas fa-chalkboard-teacher" w-tid="163"></i></div>
                             <div class="stat-details" w-tid="165">
-                                <h3 w-tid="167">120</h3>
+                                <h3 w-tid="167">{{total_faculty}}</h3>
                                 <p w-tid="169">Teachers</p>
                             </div>
                         </div>
@@ -56,13 +56,13 @@
                                 <p w-tid="181">Courses</p>
                             </div>
                         </div>
-                        <div class="stat-card" w-tid="183">
+                        <!-- <div class="stat-card" w-tid="183">
                             <div class="stat-icon" w-tid="185"><i class="fas fa-dollar-sign" w-tid="187"></i></div>
                             <div class="stat-details" w-tid="189">
                                 <h3 w-tid="191">$750,000</h3>
                                 <p w-tid="193">Revenue</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <div class="dashboard-widgets" w-tid="195">
@@ -111,22 +111,18 @@
                         <div class="widget notice-board" w-tid="313">
                             <h2 w-tid="315">Recent Notices</h2>
                             <div class="notice-list" w-tid="317">
-                                <div class="notice-item" w-tid="319">
-                                    <h3 w-tid="321">Mid-Term Examination Schedule</h3>
-                                    <p w-tid="323">The mid-term examinations for all departments will commence from October 15th, 2023. Students are advised to check their respective department notice boards for detailed schedules.</p>
-                                    <div class="notice-meta" w-tid="325">
-                                        <span w-tid="327">Posted by: Admin</span>
-                                        <span w-tid="329">Posted on: Aug 10, 2023</span>
-                                    </div>
-                                </div>
+                                
+                                {% for notice in notices %}
+                                
                                 <div class="notice-item" w-tid="331">
-                                    <h3 w-tid="333">Library Timings Update</h3>
-                                    <p w-tid="335">Please note that the college library will now remain open until 8:00 PM on weekdays to accommodate evening study sessions. Weekend timings remain unchanged.</p>
+                                    <h3 w-tid="333">{{ notice.title }}</h3>
+                                    <p w-tid="335">{{ notice.content }}</p>
                                     <div class="notice-meta" w-tid="337">
-                                        <span w-tid="339">Posted by: Librarian</span>
-                                        <span w-tid="341">Posted on: Aug 8, 2023</span>
+
+                                        <span w-tid="341">Posted on: {{ notice.date }}</span>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                             
                         </div>
