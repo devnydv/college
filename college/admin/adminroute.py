@@ -58,7 +58,9 @@ def dept():
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        return render_template("department.html")
+        users = Faculty.query.filter_by(role="Head of the Department").all()
+        print(users)
+        return render_template("department.html", hod = users)
     else:
         return redirect(url_for("login"))
     

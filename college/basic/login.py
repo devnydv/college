@@ -16,15 +16,17 @@ def admlogin():
 
 
     users = admin.query.all()
+
     user = admin.query.filter_by(username="admin").first()
-    
-    if password == user.password and username == user.username:
-        session['user_id'] = user.username
+    if user != None:
+        if password == user.password and username == user.username:
+            session['user_id'] = user.username
         
-        return redirect(url_for("admin"))
-    else:
-        return redirect(url_for("login"))
+            return redirect(url_for("admin"))
+        else:
+            return redirect(url_for("login"))
     
+    return redirect(url_for("login"))
 
 @app.route("/login/student", methods = ["GET", "POST"])
 def student_login():

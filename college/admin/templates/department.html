@@ -1,40 +1,42 @@
 {% from "macro/cmsnav.html" import cmsnav%}
 {%extends "admbase.html"%}
 {%block head%}
-    <title>College Management System</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>College Management System</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 {%endblock%}
 {%block content%}
-    <div class="container" w-tid="21">
-        <!-- Sidebar -->
-        {{cmsnav()}}
-        <main class="main-content" w-tid="111">
-            <header class="top-header" w-tid="113">
-                <div class="search-box" w-tid="115">
-                    <input type="text" placeholder="Search..." w-tid="117"/>
-                    <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
+<div class="container" w-tid="21">
+    <!-- Sidebar -->
+    {{cmsnav()}}
+    
+    <main class="main-content" w-tid="111">
+        <header class="top-header" w-tid="113">
+            <div class="search-box" w-tid="115">
+                <input type="text" placeholder="Search..." w-tid="117" />
+                <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
+            </div>
+            <div class="user-profile" w-tid="123">
+                <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
+                <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
+                <div class="profile-img" w-tid="133">
+                    <i class="fas fa-user-circle" w-tid="135"></i>
                 </div>
-                <div class="user-profile" w-tid="123">
-                    <span class="notification" w-tid="125"><i class="fas fa-bell" w-tid="127"></i></span>
-                    <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span>
-                    <div class="profile-img" w-tid="133">
-                        <i class="fas fa-user-circle" w-tid="135"></i>
-                    </div>
-                    <span class="username" w-tid="137">Admin User</span>
+                <span class="username" w-tid="137">Admin User</span>
+            </div>
+        </header>
+        <!-- Dashboard Section -->
+        <div id="dashboard-page" class="content-section" w-tid="139">
+            <div class="dashboard" w-tid="141">
+                <h1 w-tid="357">Department Management</h1>
+                {{hod}}
+                <div class="students-header" w-tid="359">
+                    <p w-tid="361">can see all the departments and there HOD's</p>
+                    <!-- <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button> -->
                 </div>
-            </header>
-            <!-- Dashboard Section -->
-            <div id="dashboard-page" class="content-section" w-tid="139">
-                <div class="dashboard" w-tid="141">
-                    <h1 w-tid="357">Department Management</h1>
-                    <div class="students-header" w-tid="359">
-                        <p w-tid="361">Manage all student information and academic records</p>
-                        <!-- <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button> -->
-                    </div>
-                    <!-- <div class="student-filters" w-tid="367"> -->
-                        <!-- <div class="filter-group" w-tid="369">
+                <!-- <div class="student-filters" w-tid="367"> -->
+                <!-- <div class="filter-group" w-tid="369">
                             <label w-tid="371">Department:</label>
                             <select w-tid="373">
                                 <option w-tid="375">All Departments</option>
@@ -44,8 +46,8 @@
                                 <option w-tid="383">Psychology</option>
                             </select>
                         </div> -->
-                        
-                        <!-- <div class="filter-group" w-tid="385">
+
+                <!-- <div class="filter-group" w-tid="385">
                             <label w-tid="387">Year:</label>
                             <select w-tid="389">
                                 <option w-tid="391">All Years</option>
@@ -65,58 +67,61 @@
                                 <option w-tid="413">Graduated</option>
                             </select>
                         </div> -->
-                    <!-- </div> -->
-                    <div class="students-table" w-tid="875">
-                        <table w-tid="877">
-                            <thead w-tid="879">
-                                <tr w-tid="881">
-                                    <th w-tid="883">Department ID</th>
-                                    <th w-tid="885">Department Name</th>
-                                    <th w-tid="887">Head of Department</th>
-                                    <th w-tid="895">Faculties</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody w-tid="899">
-                                <tr w-tid="901">
-                                    <td w-tid="903">DEPT001</td>
-                                    <td w-tid="905">Computer Science</td>
-                                    <td w-tid="907">Dr. Robert Anderson</td>
-                                    
-                                    <td w-tid="915">
-                                        <span w-tid="917"> Robert Anderson</span>
-                                        
-                                        
-                                        </td>
-                                    <!-- <td class="action-cell" w-tid="919">
+                <!-- </div> -->
+                <div class="students-table" w-tid="875">
+                    <table w-tid="877">
+                        <thead w-tid="879">
+                            <tr w-tid="881">
+                                <th w-tid="883">Department ID</th>
+                                <th w-tid="885">Department Name</th>
+                                <th w-tid="887">Head of Department</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody w-tid="899">
+                            <tr w-tid="901">
+                                {%for user in hod%}
+                                
+                                <td w-tid="903">DEPT001</td>
+                                <td w-tid="905">{{user.department}}</td>
+                                
+                                <td w-tid="903">{{user.name}}</td>
+                                {%endfor%}
+                                <!-- <td w-tid="915">
+                                    <span w-tid="917"> Robert Anderson</span>
+
+
+                                </td> -->
+                                <!-- <td class="action-cell" w-tid="919">
                                         <button class="action-btn view-btn" w-tid="921"><i class="fas fa-eye" w-tid="923"></i></button>
                                         <button class="action-btn edit-btn" w-tid="925"><i class="fas fa-edit" w-tid="927"></i></button>
                                         <button class="action-btn delete-btn" w-tid="929"><i class="fas fa-trash" w-tid="931"></i></button>
                                     </td> -->
-                                </tr>
-                                <!-- Add more department rows as needed -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="pagination" w-tid="601">
-                        <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
-                        <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
-                        <button class="active" w-tid="611">1</button>
-                        <button w-tid="613">2</button>
-                        <button w-tid="615">3</button>
-                        <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
-                        <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
-                    </div>
-                    
-                    
+                            </tr>
+                            <!-- Add more department rows as needed -->
+                        </tbody>
+                    </table>
                 </div>
+                <!-- <div class="pagination" w-tid="601">
+                    <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
+                    <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>
+                    <button class="active" w-tid="611">1</button>
+                    <button w-tid="613">2</button>
+                    <button w-tid="615">3</button>
+                    <button w-tid="617"><i class="fas fa-angle-right" w-tid="619"></i></button>
+                    <button w-tid="621"><i class="fas fa-angle-double-right" w-tid="623"></i></button>
+                </div> -->
+
+
             </div>
+        </div>
 
 
 
 
 
-        </main>
-    </div>
-    
-    {%endblock%}
+    </main>
+</div>
+
+{%endblock%}

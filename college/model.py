@@ -45,7 +45,7 @@ class Faculty(db.Model):
     email = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     department = db.Column(db.Integer, nullable=False)
-    role = db.Column(db.Integer, nullable=False)
+    role = db.Column(db.String, nullable=False)
     dob = db.Column(db.Date, nullable=False)
     doj = db.Column(db.Date, nullable=False)
     gender = db.Column(db.String, nullable=False)
