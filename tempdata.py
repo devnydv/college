@@ -6,7 +6,7 @@ def semester():
     return semesters
 
 def departments():
-    departments = ['Computer Science', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Electronics and Cummunication', 'Chemical Engineering', 'Aerospace Engineering', 'Information Technology']
+    departments = ['Computer Science Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Electronics Engineering']
     return departments
 
 def designations():

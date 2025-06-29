@@ -1,0 +1,293 @@
+{
+  "Computer Science": {
+    "Semester1": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Programming for Problem Solving",
+      "Basic Electrical and Electronics Engineering",
+      "Engineering Graphics and Workshop",
+      "Communication Skills",
+      "Physics Lab",
+      "Programming Lab"
+    ],
+    "Semester2": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Data Structures",
+      "Digital Logic Design",
+      "Environmental Studies",
+      "Data Structures Lab",
+      "Digital Logic Lab"
+    ],
+    "Semester3": [
+      "Discrete Mathematics",
+      "Computer Organization and Architecture",
+      "Object Oriented Programming",
+      "Operating Systems",
+      "Design and Analysis of Algorithms",
+      "OOPs Lab",
+      "OS Lab and Algorithm Lab"
+    ],
+    "Semester4": [
+      "Theory of Computation",
+      "Database Management Systems",
+      "Computer Networks",
+      "Software Engineering",
+      "DBMS Lab",
+      "CN Lab",
+      "Mini Project I"
+    ],
+    "Semester5": [
+      "Compiler Design",
+      "Web Technologies",
+      "Artificial Intelligence",
+      "Professional Ethics",
+      "Web Tech Lab",
+      "Compiler Design Lab",
+      "Minor Project II"
+    ],
+    "Semester6": [
+      "Cloud Computing and  IoT",
+      "Mobile App Development and Big Data",
+      "Cybersecurity",
+      "Major Project Phase I",
+      "Aptitude & Reasoning Skills",
+      "Technical Seminar"
+    ],
+    "Semester7": [
+      "Data Science",
+      "Research Methodology",
+      "Industrial Management",
+      "Major Project Phase II",
+      "Internship and Field Work"
+    ],
+    "Semester8": [
+      "Major Project Final Submission",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Technologies",
+      "Capstone Project"
+    ]
+  },
+
+  "Electronics Engineering": {
+    "Semester1": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Semester2": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Basic Electronics Engineering",
+      "Network Theory",
+      "Environmental Science",
+      "Basic Electronics Lab",
+      "Network Lab"
+    ],
+    "Semester3": [
+      "Engineering Mathematics III",
+      "Analog Electronics",
+      "Digital Electronics",
+      "Signals and Systems",
+      "Electronic Measurement and Instrumentation",
+      "Analog Electronics Lab",
+      "Digital Electronics Lab"
+    ],
+    "Semester4": [
+      "Electromagnetic Fields",
+      "Microprocessors and Microcontrollers",
+      "Analog Communication",
+      "Control Systems",
+      "Microprocessor Lab",
+      "Communication Lab",
+      "Mini Project I"
+    ],
+    "Semester5": [
+      "Digital Communication",
+      "VLSI Design",
+      "Embedded Systems",
+      "Antenna and Wave Propagation",
+      "VLSI Lab",
+      "Digital Communication Lab",
+      "Minor Project II"
+    ],
+    "Semester6": [
+      "Microwave Engineering",
+      "Digital Signal Processing",
+      "Industrial Automation and Robotics",
+      "IoT and Embedded Systems",
+      "DSP Lab",
+      "Microwave Lab",
+      "Technical Seminar"
+    ],
+    "Semester7": [
+      "Wireless and Mobile Communication",
+      "Optical Communication",
+      "Machine Learning",
+      "Major Project Phase I",
+      "Internship and Technical Seminar"
+    ],
+    "Semester8": [
+      "Satellite Communication and Advanced VLSI",
+      "Major Project Final Phase",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Technologies in Electronics"
+    ]
+  },
+
+  "Mechanical Engineering": {
+    "Semester1": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Semester2": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Engineering Thermodynamics",
+      "Computer Programming",
+      "Engineering Graphics",
+      "Programming Lab",
+      "Thermodynamics Lab"
+    ],
+    "Semester3": [
+      "Engineering Mathematics III",
+      "Fluid Mechanics",
+      "Material Science",
+      "Manufacturing Processes",
+      "Machine Drawing",
+      "Fluid Mechanics Lab",
+      "Manufacturing Lab"
+    ],
+    "Semester4": [
+      "Applied Thermodynamics",
+      "Strength of Materials",
+      "Kinematics of Machines",
+      "Electrical Machines & Controls",
+      "Measurement & Metrology",
+      "Mechanics of Solids Lab",
+      "Thermal Lab",
+      "Mini Project I"
+    ],
+    "Semester5": [
+      "Dynamics of Machines",
+      "Heat & Mass Transfer",
+      "Design of Machine Elements",
+      "CNC & Automation",
+      "HMT Lab",
+      "Dynamics Lab",
+      "Minor Project II"
+    ],
+    "Semester6": [
+      "Internal Combustion Engines",
+      "Refrigeration & Air Conditioning",
+      "Finite Element Method (FEM)",
+      "Operations Research",
+      "IC Engine Lab",
+      "CAD Lab",
+      "Technical Seminar"
+    ],
+    "Semester7": [
+      "Power Plant Engineering",
+      "Industrial Engineering & Management",
+      "Additive Manufacturing ",
+      "Major Project Phase I",
+      "Industry Interaction"
+    ],
+    "Semester8": [
+      "Renewable Energy Systems ",
+      "Project Phase II & Final Report",
+      "Comprehensive Viva",
+      "Internship Presentation",
+      "Emerging Trends in Mechanical Engineering"
+    ]
+  },
+
+  "Civil Engineering": {
+    "Semester1": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Semester2": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Programming for Problem Solving",
+      "Engineering Graphics",
+      "Environmental Science",
+      "Programming Lab",
+      "Engineering Graphics Lab"
+    ],
+    "Semester3": [
+      "Engineering Mathematics III",
+      "Building Materials & Construction",
+      "Strength of Materials",
+      "Surveying I",
+      "Fluid Mechanics",
+      "Materials Testing Lab",
+      "Surveying Lab"
+    ],
+    "Semester4": [
+      "Structural Analysis I",
+      "Concrete Technology",
+      "Transportation Engineering I",
+      "Geotechnical Engineering I",
+      "Surveying II",
+      "Concrete Lab",
+      "Soil Mechanics Lab",
+      "Mini Project I"
+    ],
+    "Semester5": [
+      "Structural Analysis II",
+      "Design of Reinforced Concrete Structures",
+      "Geotechnical Engineering II",
+      "Transportation Engineering II",
+      "Construction Planning & Management",
+      "Geotech Lab II",
+      "Structural Design Lab",
+      "Minor Project II"
+    ],
+    "Semester6": [
+      "Design of Steel Structures",
+      "Water Supply & Wastewater Engineering",
+      "Environmental Engineering",
+      "Estimation, Costing & Valuation",
+      "Open Channel Flow ",
+      "Environmental Engg. Lab",
+      "CAD in Civil Lab",
+      "Industrial Training"
+    ],
+    "Semester7": [
+      "Irrigation & Hydraulic Structures",
+      "Advanced Foundation Engineering ",
+      "Remote Sensing & GIS",
+      "Ethics",
+      "Major Project Phase I",
+      " Technical Seminar"
+    ],
+    "Semester8": [
+      "Green Building Technologies",
+      "Major Project Final Submission",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Trends in Civil Engineering"
+    ]
+  }
+}

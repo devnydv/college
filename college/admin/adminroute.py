@@ -35,7 +35,7 @@ def faculty():
     if logged:
         users = Faculty.query.all()
     #inser = addtablerow()
-        return render_template("faculty.html", faculties= users)
+        return render_template("faculty.html", faculties= users, departments= dep)
     else:
         return redirect(url_for("login"))
     
