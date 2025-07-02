@@ -30,7 +30,7 @@
         <div id="dashboard-page" class="content-section" w-tid="139">
             <div class="dashboard" w-tid="141">
                 <h1 w-tid="357">Department Management</h1>
-                {{hod}}
+                
                 <div class="students-header" w-tid="359">
                     <p w-tid="361">can see all the departments and there HOD's</p>
                     <!-- <button class="add-student-btn" w-tid="363"><i class="fas fa-plus" w-tid="365"></i> Add New Student</button> -->
@@ -68,9 +68,12 @@
                             </select>
                         </div> -->
                 <!-- </div> -->
+                 
                 <div class="students-table" w-tid="875">
+                    
                     <table w-tid="877">
                         <thead w-tid="879">
+                            
                             <tr w-tid="881">
                                 <th w-tid="883">Department ID</th>
                                 <th w-tid="885">Department Name</th>
@@ -81,7 +84,7 @@
                             <tr w-tid="901">
                                 {%for user in hod%}
                                 
-                                <td w-tid="903">DEPT001</td>
+                                <td w-tid="903">DEPT00{{user.id}}</td>
                                 <td w-tid="905">{{user.department}}</td>
                                 
                                 <td w-tid="903">{{user.name}}</td>

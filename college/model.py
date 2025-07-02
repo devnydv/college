@@ -79,3 +79,31 @@ class Notice(db.Model):
             "content": self.content,
             "date": self.date
         }
+    
+
+class Department(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    hod = db.Column(db.String(100), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "hod": self.hod
+        }
+    
+
+class Subject(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    semester = db.Column(db.String(100), nullable=False)
+    dep_id = db.Column(db.Integer, db.ForeignKey('department.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "semester": self.semester,
+            "dep_id": self.dep_id
+        }

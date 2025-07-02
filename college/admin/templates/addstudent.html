@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group" w-tid="1525">
                                 <label for="new-firstName" w-tid="1527">Roll*</label>
-                                <input type="text" id="new-firstName" name="roll" required="" w-tid="1529" value="{{data.roll}}">
+                                <input type="text" id="new-firstName" name="roll" minlength='5' maxlength="10" required="" w-tid="1529" value="{{data.roll}}">
                             </div>
 
                         </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="form-group" w-tid="1545">
                                 <label for="new-phone" w-tid="1547">Phone*</label>
-                                <input type="tel" id="new-phone" name="phone" required="" w-tid="1549"
+                                <input type="tel" id="new-phone" minlength="10" maxlength="15" name="phone" required="" w-tid="1549"
                                 value="{{data.phone}}">
                             </div>
                         </div>
@@ -137,6 +137,8 @@
 
                     </form>
                 </div>
+                
+                
                 <!-- <div class="pagination" w-tid="601">
                     <button w-tid="603"><i class="fas fa-angle-double-left" w-tid="605"></i></button>
                     <button w-tid="607"><i class="fas fa-angle-left" w-tid="609"></i></button>

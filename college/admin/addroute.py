@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice
+from college.model import db, Student, Faculty, Notice, Subject
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
 
@@ -14,7 +14,8 @@ def addstdn():
     if logged:
         if request.method == "POST":
             data = request.form
-            student = Student(name= data['name'],
+            student = Student(
+            name= data['name'],
             roll= int(data['roll']),
             email=data['email'],
             phone= data['phone'],
@@ -81,8 +82,9 @@ def adddepartment():
 
 
 
-@app.route("/admin/addattendece", methods = ["GET", "POST"])
-def addatt():
-    #inser = addtablerow()
-    return render_template("adddepartment.html")
+@app.route("/admin/addresult/<id>", methods = ["GET", "POST"])
+def addresult(id):
+    
+    return render_template("addresult.html", student_id=id)
+
 

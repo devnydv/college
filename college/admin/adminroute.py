@@ -11,7 +11,7 @@ def admin():
     total_student = Student.query.count()
     total_faculty = Faculty.query.count()
     notices = Notice.query.order_by(desc(Notice.id)).limit(3).all()
-    print(notices)
+    
     global logged
     logged = 'user_id' in session
     if logged:
@@ -55,7 +55,6 @@ def cours():
         return redirect(url_for("login"))
     
     
-
 
 @app.route("/admin/department", methods = ["GET", "POST"])
 def dept():

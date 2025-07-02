@@ -1,6 +1,6 @@
 {
   "Computer Science": {
-    "Semester1": [
+    "First Semester": [
       "Engineering Mathematics I",
       "Physics",
       "Programming for Problem Solving",
@@ -10,7 +10,7 @@
       "Physics Lab",
       "Programming Lab"
     ],
-    "Semester2": [
+    "Second Semester": [
       "Engineering Mathematics II",
       "Chemistry",
       "Data Structures",
@@ -19,7 +19,7 @@
       "Data Structures Lab",
       "Digital Logic Lab"
     ],
-    "Semester3": [
+    "Third Semester": [
       "Discrete Mathematics",
       "Computer Organization and Architecture",
       "Object Oriented Programming",
@@ -28,7 +28,7 @@
       "OOPs Lab",
       "OS Lab and Algorithm Lab"
     ],
-    "Semester4": [
+    "Fourth Semester": [
       "Theory of Computation",
       "Database Management Systems",
       "Computer Networks",
@@ -37,7 +37,7 @@
       "CN Lab",
       "Mini Project I"
     ],
-    "Semester5": [
+    "Fifth Semester": [
       "Compiler Design",
       "Web Technologies",
       "Artificial Intelligence",
@@ -46,7 +46,7 @@
       "Compiler Design Lab",
       "Minor Project II"
     ],
-    "Semester6": [
+    "Sixth Semester": [
       "Cloud Computing and  IoT",
       "Mobile App Development and Big Data",
       "Cybersecurity",
@@ -54,14 +54,14 @@
       "Aptitude & Reasoning Skills",
       "Technical Seminar"
     ],
-    "Semester7": [
+    "Seventh Semester": [
       "Data Science",
       "Research Methodology",
       "Industrial Management",
       "Major Project Phase II",
       "Internship and Field Work"
     ],
-    "Semester8": [
+    "Eighth Semester": [
       "Major Project Final Submission",
       "Viva Voce",
       "Internship Report",
@@ -71,7 +71,7 @@
   },
 
   "Electronics Engineering": {
-    "Semester1": [
+    "First Semester": [
       "Engineering Mathematics I",
       "Physics",
       "Basic Electrical & Electronics Engineering",
@@ -81,7 +81,7 @@
       "Basic Engineering Lab",
       "Workshop Practice"
     ],
-    "Semester2": [
+    "Second Semester": [
       "Engineering Mathematics II",
       "Chemistry",
       "Basic Electronics Engineering",
@@ -90,7 +90,7 @@
       "Basic Electronics Lab",
       "Network Lab"
     ],
-    "Semester3": [
+    "Third Semester": [
       "Engineering Mathematics III",
       "Analog Electronics",
       "Digital Electronics",
@@ -99,7 +99,7 @@
       "Analog Electronics Lab",
       "Digital Electronics Lab"
     ],
-    "Semester4": [
+    "Fourth Semester": [
       "Electromagnetic Fields",
       "Microprocessors and Microcontrollers",
       "Analog Communication",
@@ -108,7 +108,7 @@
       "Communication Lab",
       "Mini Project I"
     ],
-    "Semester5": [
+    "Fifth Semester": [
       "Digital Communication",
       "VLSI Design",
       "Embedded Systems",
@@ -117,7 +117,7 @@
       "Digital Communication Lab",
       "Minor Project II"
     ],
-    "Semester6": [
+    "Sixth Semester": [
       "Microwave Engineering",
       "Digital Signal Processing",
       "Industrial Automation and Robotics",
@@ -126,14 +126,14 @@
       "Microwave Lab",
       "Technical Seminar"
     ],
-    "Semester7": [
+    "Seventh Semester": [
       "Wireless and Mobile Communication",
       "Optical Communication",
       "Machine Learning",
       "Major Project Phase I",
       "Internship and Technical Seminar"
     ],
-    "Semester8": [
+    "Eighth Semester": [
       "Satellite Communication and Advanced VLSI",
       "Major Project Final Phase",
       "Viva Voce",
@@ -143,7 +143,7 @@
   },
 
   "Mechanical Engineering": {
-    "Semester1": [
+    "First Semester": [
       "Engineering Mathematics I",
       "Physics",
       "Basic Electrical & Electronics Engineering",
@@ -153,7 +153,7 @@
       "Basic Engineering Lab",
       "Workshop Practice"
     ],
-    "Semester2": [
+    "Second Semester": [
       "Engineering Mathematics II",
       "Chemistry",
       "Engineering Thermodynamics",
@@ -162,7 +162,7 @@
       "Programming Lab",
       "Thermodynamics Lab"
     ],
-    "Semester3": [
+    "Third Semester": [
       "Engineering Mathematics III",
       "Fluid Mechanics",
       "Material Science",
@@ -171,7 +171,7 @@
       "Fluid Mechanics Lab",
       "Manufacturing Lab"
     ],
-    "Semester4": [
+    "Fourth Semester": [
       "Applied Thermodynamics",
       "Strength of Materials",
       "Kinematics of Machines",
@@ -181,7 +181,7 @@
       "Thermal Lab",
       "Mini Project I"
     ],
-    "Semester5": [
+    "Fifth Semester": [
       "Dynamics of Machines",
       "Heat & Mass Transfer",
       "Design of Machine Elements",
@@ -190,7 +190,7 @@
       "Dynamics Lab",
       "Minor Project II"
     ],
-    "Semester6": [
+    "Sixth Semester": [
       "Internal Combustion Engines",
       "Refrigeration & Air Conditioning",
       "Finite Element Method (FEM)",
@@ -199,14 +199,14 @@
       "CAD Lab",
       "Technical Seminar"
     ],
-    "Semester7": [
+    "Seventh Semester": [
       "Power Plant Engineering",
       "Industrial Engineering & Management",
       "Additive Manufacturing ",
       "Major Project Phase I",
       "Industry Interaction"
     ],
-    "Semester8": [
+    "Eighth Semester": [
       "Renewable Energy Systems ",
       "Project Phase II & Final Report",
       "Comprehensive Viva",
@@ -216,7 +216,7 @@
   },
 
   "Civil Engineering": {
-    "Semester1": [
+    "First Semester": [
       "Engineering Mathematics I",
       "Physics",
       "Basic Electrical & Electronics Engineering",
@@ -226,7 +226,7 @@
       "Basic Engineering Lab",
       "Workshop Practice"
     ],
-    "Semester2": [
+    "Second Semester": [
       "Engineering Mathematics II",
       "Chemistry",
       "Programming for Problem Solving",
@@ -235,7 +235,7 @@
       "Programming Lab",
       "Engineering Graphics Lab"
     ],
-    "Semester3": [
+    "Third Semester": [
       "Engineering Mathematics III",
       "Building Materials & Construction",
       "Strength of Materials",
@@ -244,7 +244,7 @@
       "Materials Testing Lab",
       "Surveying Lab"
     ],
-    "Semester4": [
+    "Fourth Semester": [
       "Structural Analysis I",
       "Concrete Technology",
       "Transportation Engineering I",
@@ -254,7 +254,7 @@
       "Soil Mechanics Lab",
       "Mini Project I"
     ],
-    "Semester5": [
+    "Fifth Semester": [
       "Structural Analysis II",
       "Design of Reinforced Concrete Structures",
       "Geotechnical Engineering II",
@@ -264,7 +264,7 @@
       "Structural Design Lab",
       "Minor Project II"
     ],
-    "Semester6": [
+    "Sixth Semester": [
       "Design of Steel Structures",
       "Water Supply & Wastewater Engineering",
       "Environmental Engineering",
@@ -274,15 +274,15 @@
       "CAD in Civil Lab",
       "Industrial Training"
     ],
-    "Semester7": [
+    "Seventh Semester": [
       "Irrigation & Hydraulic Structures",
       "Advanced Foundation Engineering ",
       "Remote Sensing & GIS",
       "Ethics",
       "Major Project Phase I",
-      " Technical Seminar"
+      "Technical Seminar"
     ],
-    "Semester8": [
+    "Eighth Semester": [
       "Green Building Technologies",
       "Major Project Final Submission",
       "Viva Voce",
