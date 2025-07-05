@@ -17,7 +17,7 @@ def updatestdn(id):
         student.roll= int(data['roll'])
         student.email=data['email']
         student.phone= data['phone']
-        student.semester= data['year']
+        student.semester= 1
         date = datetime.strptime(data['dob'], '%Y-%m-%d').date()
         student.dob= date
         student.gender= data['gender']

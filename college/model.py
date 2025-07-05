@@ -9,19 +9,23 @@ class admin(db.Model):
 
     def to_dict(self):
         return {"id": self.id, "username": self.username, "password": self.password}
-    
+
+
+
+
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     roll = db.Column(db.Integer, nullable=False)
-    email = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
     phone = db.Column(db.Integer, nullable=False)
-    semester = db.Column(db.Integer, nullable=False)
+    semester = db.Column(db.Integer, db.ForeignKey('semester.id'), nullable=False)
     dob = db.Column(db.Date, nullable=False)
     gender = db.Column(db.String, nullable=False)
     department = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
-   
+    
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -106,4 +110,35 @@ class Subject(db.Model):
             "name": self.name,
             "semester": self.semester,
             "dep_id": self.dep_id
+        }
+
+class Result(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    mark = db.Column(db.Integer, nullable=False)
+    outoff = db.Column(db.Integer, nullable=False)
+    remark = db.Column(db.String(100), nullable=True)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
+    semester = db.Column(db.String(100), nullable=False)
+    status = db.Column(db.Boolean, nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "mark": self.mark,
+            "outoff": self.outoff,
+            "remark": self.remark,
+            "student_id": self.student_id,
+            "semester": self.semester,
+            "status": self.status
+        }
+    
+
+class Semester(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    students = db.relationship('Student', backref='semester_', lazy=True)
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name
         }

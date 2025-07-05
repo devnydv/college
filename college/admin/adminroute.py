@@ -26,6 +26,8 @@ def stdn():
     if logged:
     #inser = addtablerow()
         users = Student.query.all()
+        for user in users:
+            print(user.semester_.name)
         return render_template("student.html", students= users, departments= dep)
     else:
         return redirect(url_for("login"))

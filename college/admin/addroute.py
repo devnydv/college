@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice, Subject
+from college.model import db, Student, Faculty, Notice, Subject, Result
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
 
@@ -19,7 +19,7 @@ def addstdn():
             roll= int(data['roll']),
             email=data['email'],
             phone= data['phone'],
-            semester= data['year'],
+            semester= 1,
             dob= datetime.strptime(data['dob'], '%Y-%m-%d').date(),
             gender= data['gender'],
             department= data['department'],
@@ -84,7 +84,26 @@ def adddepartment():
 
 @app.route("/admin/addresult/<id>", methods = ["GET", "POST"])
 def addresult(id):
+    student = Student.query.get(id)
+    if request.method == "POST":
+        data = request.form
+        result = Result.query.get(id)
+        result = Result(
+            mark=data['mark'],
+            outoff=data['outoff'],
+            remark=data['remark'],
+            student_id= id,
+            semester=student.semester,
+            status=True if int(data['mark'])/ int(data['outoff']) * 100  >= 35 else False
+            )
+        
+        db.session.add(result)
+        if int(data['mark'])/ int(data['outoff']) * 100 >= 35:
+            student.semester += 1
+            db.session.add(student)
+        db.session.commit()
+        return redirect(url_for('stdn'))
     
-    return render_template("addresult.html", student_id=id)
+    return render_template("addresult.html", student=student)
 
 
