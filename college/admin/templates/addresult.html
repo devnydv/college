@@ -97,15 +97,22 @@
                         </thead>
                         <tbody w-tid="439">
 
-                            <!-- {%for student in students%} -->
+
+
+                            <!-- {%for result in result%} -->
+
+
                             <tr w-tid="441">
                                 <!-- <td w-tid="443">{{student.id}}</td> -->
-                                <td w-tid="445">dev</td>
-                                <td w-tid="447">{{student.department}}</td>
-                                <td w-tid="449">{{student.roll}}</td>
-                                <td w-tid="451">{{student.semester}}</td>
-                                <td w-tid="453">{{student.phone}}</td>
-                                <!-- <td w-tid="455"><span class="status active" w-tid="457">Active</span></td> -->
+                                <td w-tid="445">{{result.mark}}</td>
+                                <td w-tid="447">{{result.outoff}}</td>
+                                <td w-tid="449">{{result.attendance}}</td>
+                                <td w-tid="451">{{result.remark}}</td>
+                                {%if result.status%}
+                                <td w-tid="453">Pass</td>
+                                {% else %}
+                                <td w-tid="453">Fail</td>
+                                {% endif %}
                                 <td class="action-cell" w-tid="459">
 
                                     <button class="action-btn edit-btn" w-tid="465">
@@ -124,13 +131,20 @@
 
                                 </td>
                             </tr>
+
+
                             <!-- {%endfor%} -->
 
                         </tbody>
                     </table>
+                    {%if not result.id%}
+                    <br>
+                    <p style="text-align: center;">No results available</p> <br><br>
+                    {% endif %}
                 </div>
-                <br><br>
-                <p style="text-align: center;">No results available</p> <br><br>
+                <br>
+                <!-- No results available message -->
+
 
 
 
@@ -139,8 +153,8 @@
 
 
                 <div class="student-form-container" w-tid="1519">
-                    <form id="add-result-form" method="POST" action="/admin/addresult/{{ student.id }}" class="student-form"
-                        w-tid="1521">
+                    <form id="add-result-form" method="POST" action="/admin/addresult/{{ student.id }}"
+                        class="student-form" w-tid="1521">
                         <div class="form-row" w-tid="1537">
                             <div class="form-group" w-tid="1539">
                                 <label for="new-email" w-tid="1541">Mark Obtained*</label>

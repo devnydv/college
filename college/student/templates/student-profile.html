@@ -44,20 +44,24 @@
 
             <div class="profile-section">
                 <h2>Academic Performance</h2>
+                {% for result in results %}
+                <h3>{{ result.semester }}</h3>
                 <div class="academics-grid">
                     <div class="academic-card">
-                        <h3>Current CGPA</h3>
-                        <p class="grade">8.5</p>
+                        <h3>Percentage Scored</h3>
+                        
+                        <p class="grade">{{ (result.mark / result.outoff * 100) | round(2) }}%</p>
                     </div>
                     <div class="academic-card">
                         <h3>Attendance</h3>
-                        <p class="percentage">85%</p>
+                        <p class="percentage">{{result.attendance}}%</p>
                     </div>
                     <div class="academic-card">
-                        <h3>Assignments</h3>
-                        <p class="count">12/15</p>
+                        <h3>Final Result</h3>
+                        <p class="count">{{ 'Pass' if result.status else 'Fail' }}</p>
                     </div>
                 </div>
+                {%endfor%}
             </div>
 
             <!-- <div class="profile-section">

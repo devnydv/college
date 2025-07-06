@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice, Subject, Result
+from college.model import db, Student, Faculty, Notice, Subject, Result, Department
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
 
@@ -87,11 +87,12 @@ def addresult(id):
     student = Student.query.get(id)
     if request.method == "POST":
         data = request.form
-        result = Result.query.get(id)
+        
         result = Result(
             mark=data['mark'],
             outoff=data['outoff'],
             remark=data['remark'],
+            attendance=data['attendance'],
             student_id= id,
             semester=student.semester,
             status=True if int(data['mark'])/ int(data['outoff']) * 100  >= 35 else False
@@ -104,6 +105,115 @@ def addresult(id):
         db.session.commit()
         return redirect(url_for('stdn'))
     
-    return render_template("addresult.html", student=student)
+    result = Result.query.filter_by(student_id=id)
+    if not result:
+        result = None
+    
+    return render_template("addresult.html", student=student, result = result)
 
 
+
+
+
+
+data = {
+    "Mechanical Engineering": {
+    "First Semester": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Second Semester": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Engineering Thermodynamics",
+      "Computer Programming",
+      "Engineering Graphics",
+      "Programming Lab",
+      "Thermodynamics Lab"
+    ],
+    "Third Semester": [
+      "Engineering Mathematics III",
+      "Fluid Mechanics",
+      "Material Science",
+      "Manufacturing Processes",
+      "Machine Drawing",
+      "Fluid Mechanics Lab",
+      "Manufacturing Lab"
+    ],
+    "Fourth Semester": [
+      "Applied Thermodynamics",
+      "Strength of Materials",
+      "Kinematics of Machines",
+      "Electrical Machines & Controls",
+      "Measurement & Metrology",
+      "Mechanics of Solids Lab",
+      "Thermal Lab",
+      "Mini Project I"
+    ],
+    "Fifth Semester": [
+      "Dynamics of Machines",
+      "Heat & Mass Transfer",
+      "Design of Machine Elements",
+      "CNC & Automation",
+      "HMT Lab",
+      "Dynamics Lab",
+      "Minor Project II"
+    ],
+    "Sixth Semester": [
+      "Internal Combustion Engines",
+      "Refrigeration & Air Conditioning",
+      "Finite Element Method (FEM)",
+      "Operations Research",
+      "IC Engine Lab",
+      "CAD Lab",
+      "Technical Seminar"
+    ],
+    "Seventh Semester": [
+      "Power Plant Engineering",
+      "Industrial Engineering & Management",
+      "Additive Manufacturing ",
+      "Major Project Phase I",
+      "Industry Interaction"
+    ],
+    "Eighth Semester": [
+      "Renewable Energy Systems ",
+      "Project Phase II & Final Report",
+      "Comprehensive Viva",
+      "Internship Presentation",
+      "Emerging Trends in Mechanical Engineering"
+    ]
+  },
+}
+
+@app.route("/admin/demo", methods = ["GET", "POST"])
+def demo():
+    
+    for semester, subjects in data["Mechanical Engineering"].items():
+        print(semester, subjects)
+        for subject in subjects:
+            new_subject = Subject(
+                name=subject,
+                semester=semester,
+                dep_id=2  # Assuming department ID is 2 for Mechanical Engineering
+            )
+            db.session.add(new_subject)
+    db.session.commit()
+    return "Subjects added successfully"
+
+@app.route("/admin/dept", methods = ["GET", "POST"])
+def deptm():
+    dept_data = ['Computer Science Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Electronics Engineering']
+    for dept in dept_data:
+        departments = Department(
+            name=dept,
+            hod=1
+        )
+        db.session.add(departments)
+    db.session.commit()
+    return "Departments added successfully"

@@ -116,6 +116,7 @@ class Result(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     mark = db.Column(db.Integer, nullable=False)
     outoff = db.Column(db.Integer, nullable=False)
+    attendance = db.Column(db.Integer, nullable=False)
     remark = db.Column(db.String(100), nullable=True)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
     semester = db.Column(db.String(100), nullable=False)

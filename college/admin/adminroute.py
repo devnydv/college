@@ -76,14 +76,14 @@ def dept():
 
 
 
-@app.route("/admin/attendence", methods = ["GET", "POST"])
-def attendence():
-    logged = 'user_id' in session
-    if logged:
-    #inser = addtablerow()
-        return render_template("attendence.html")
-    else:
-        return redirect(url_for("login"))
+# @app.route("/admin/attendence", methods = ["GET", "POST"])
+# def attendence():
+#     logged = 'user_id' in session
+#     if logged:
+#     #inser = addtablerow()
+#         return render_template("attendence.html")
+#     else:
+#         return redirect(url_for("login"))
     
     
 
