@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice
+from college.model import db, Student, Faculty, Notice, Subject
 from tempdata import departments
 from sqlalchemy import desc
 
@@ -51,8 +51,8 @@ def faculty():
 def cours():
     logged = 'user_id' in session
     if logged:
-    #inser = addtablerow()
-        return render_template("courses.html", departments= dep)
+        subjects = Subject.query.all()
+        return render_template("courses.html", subjects=subjects, departments= dep)
     else:
         return redirect(url_for("login"))
     
