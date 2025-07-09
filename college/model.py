@@ -89,6 +89,7 @@ class Department(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     hod = db.Column(db.String(100), nullable=False)
+    subjects = db.relationship('Subject', backref='subject_', lazy=True)
 
     def to_dict(self):
         return {
@@ -103,7 +104,7 @@ class Subject(db.Model):
     name = db.Column(db.String(100), nullable=False)
     semester = db.Column(db.String(100), nullable=False)
     dep_id = db.Column(db.Integer, db.ForeignKey('department.id'), nullable=False)
-
+    
     def to_dict(self):
         return {
             "id": self.id,

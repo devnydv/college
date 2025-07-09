@@ -9,14 +9,15 @@ dep = departments()
 @app.route("/admin", methods = ["GET", "POST"])
 def admin():
     total_student = Student.query.count()
+    total_subject = Subject.query.count()
     total_faculty = Faculty.query.count()
     notices = Notice.query.order_by(desc(Notice.id)).limit(3).all()
-    
+    users = Student.query.order_by(desc(Student.id)).limit(5).all()
     global logged
     logged = 'user_id' in session
     if logged:
     #inser = addtablerow()
-        return render_template("dash.html", total_student=total_student, total_faculty=total_faculty, notices=notices, departments=dep)
+        return render_template("dash.html", total_student=total_student, total_faculty=total_faculty, notices=notices, departments=dep, users=users, total_subject=total_subject)
     else:
         return redirect(url_for("login"))
 
