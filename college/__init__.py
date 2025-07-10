@@ -2,10 +2,10 @@ from flask import Flask, jsonify
 from college.model import db, admin
 
 app = Flask(__name__)
-app.secret_key ="doNotTryToSuck"
+app.secret_key ="veryverysecretkey"
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize db

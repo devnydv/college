@@ -4,8 +4,8 @@ db = SQLAlchemy()
 
 class admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), nullable=False)
-    password = db.Column(db.String(120), unique=True, nullable=False)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
 
     def to_dict(self):
         return {"id": self.id, "username": self.username, "password": self.password}
@@ -16,7 +16,7 @@ class admin(db.Model):
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    roll = db.Column(db.Integer, nullable=False)
+    roll = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     semester = db.Column(db.Integer, db.ForeignKey('semester.id'), nullable=False)
@@ -44,10 +44,10 @@ class Student(db.Model):
 class Faculty(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    facultyid = db.Column(db.Integer, nullable=False)
+    facultyid = db.Column(db.String(100), unique=True, nullable=False)
     education = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    phone = db.Column(db.Integer, nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    phone = db.Column(db.Integer, unique=True, nullable=False)
     department = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String, nullable=False)
     dob = db.Column(db.Date, nullable=False)

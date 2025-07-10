@@ -17,7 +17,7 @@ def admlogin():
 
     users = admin.query.all()
 
-    user = admin.query.filter_by(username="admin").first()
+    user = admin.query.filter_by(username=username).first()
     if user != None:
         if password == user.password and username == user.username:
             session['user_id'] = user.username
