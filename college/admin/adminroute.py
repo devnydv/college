@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice, Subject
+from college.model import db, Student, Faculty, Notice, Subject, Query
 from tempdata import departments, subjects
 from sqlalchemy import desc
 
@@ -99,6 +99,24 @@ def notice():
     else:
         return redirect(url_for("login"))
     
-    
 
+@app.route("/admin/queries", methods = ["GET", "POST"])
+def queries():
+    logged = 'user_id' in session
+    if logged:
+        if request.method == "POST":
+            name = request.form.get("name")
+            email = request.form.get("email")
+            subject = request.form.get("subject")
+            message = request.form.get("message")
+            
+            new_query = Query(name=name, email=email, subject=subject, message=message)
+            db.session.add(new_query)
+            db.session.commit()
+            
+            return redirect(url_for("contact"))
+        queries = Query.query.all()
+        return render_template("queries.html", queries=queries)
+    else:
+        return redirect(url_for("login"))
 

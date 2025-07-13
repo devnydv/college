@@ -1,85 +1,95 @@
-
 {%extends "base.html"%}
 
 {%block head%}
-    <title>Login - Brahmagupta Engineering College</title>
-    <link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Login - Brahmagupta Engineering College</title>
+<link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  #error-message {
+    background-color: #f44336;
+    /* red */
+    color: white;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 4px;
+    display: none;
+  }
+
+  #error-message.fade-out {
+    animation: fadeOut 1s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+</style>
+{%endblock%}
+{%block content%}
+
+
+
+<main class="login-page">
+  <div class="login-container">
     
-    <style>
-    #error-message {
-      background-color: #f44336; /* red */
-      color: white;
-      padding: 10px;
-      margin: 15px;
-      border-radius: 4px;
-      display: none;
-    }
+    
+    <h2>Login Portal</h2>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+      
+      <div id="error-message" class="{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
 
-    #error-message.fade-out {
-      animation: fadeOut 1s forwards;
-    }
+    <div class="login-options">
+      <div class="login-option" id="student-login">
+        <i class="fas fa-user-graduate"></i>
+        <h3>Student Login</h3>
+        <form class="login-form hidden" method="post" action="/login/student">
+          <input type="text" placeholder="Email" name="email" required>
+          <input type="password" placeholder="Phone" name="phone" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
 
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-  </style>
-    {%endblock%}
-    {%block content%}
+      <div class="login-option" id="faculty-login">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Faculty Login</h3>
+        <form class="login-form hidden" method="post" action="/login/faculty">
+          <input type="text" placeholder="Email" name="email" required>
+          <input type="password" placeholder="Phone" name="phone" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
 
-
-  
-    <main class="login-page">
-        <div class="login-container">
-          {%if message%}
-            <div id="error-message">{{ message }}</div>
-          {%endif%}
-            <h2>Login Portal</h2>
-            <div class="login-options">
-                <div class="login-option" id="student-login">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Student Login</h3>
-                    <form class="login-form hidden" method="post" action="/login/student">
-                        <input type="text" placeholder="Email" name="email" required>
-                        <input type="password" placeholder="Phone" name="phone" required>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-
-                <div class="login-option" id="faculty-login">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Faculty Login</h3>
-                    <form class="login-form hidden" method="post" action="/login/faculty">
-                        <input type="text" placeholder="Email" name="email" required>
-                        <input type="password" placeholder="Phone" name="phone" required>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-
-                <div class="login-option" id="admin-login">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Admin Login</h3>
-                    <form class="login-form hidden" method="post" action="/login/admin">
-                        <input type="text" placeholder="Admin ID" name="id" required>
-                        <input type="password" placeholder="Password" name="pass" required>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
+      <div class="login-option" id="admin-login">
+        <i class="fas fa-user-shield"></i>
+        <h3>Admin Login</h3>
+        <form class="login-form hidden" method="post" action="/login/admin">
+          <input type="text" placeholder="Admin ID" name="id" required>
+          <input type="password" placeholder="Password" name="pass" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
 <script>
-    const error = document.getElementById("error-message");
-    error.style.display = "block";
+  const error = document.getElementById("error-message");
+  error.style.display = "block";
 
-    setTimeout(() => {
-      error.classList.add("fade-out");
-    }, 5000);
-  </script>
-    <!-- <script type="importmap">
+  setTimeout(() => {
+    error.classList.add("fade-out");
+  }, 5000);
+</script>
+<!-- <script type="importmap">
         {
             "imports": {
                 "config": "./config.js"
@@ -87,4 +97,4 @@
         }
     </script> -->
 
-    {%endblock%}
+{%endblock%}

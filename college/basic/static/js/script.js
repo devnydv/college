@@ -1,11 +1,11 @@
 import { config } from './config.js';
 
 // Populate contact information
-document.querySelector('.contact-info').innerHTML = `
-    <p><i class="fas fa-map-marker-alt"></i> ${config.address}</p>
-    <p><i class="fas fa-phone"></i> ${config.phone}</p>
-    <p><i class="fas fa-envelope"></i> ${config.email}</p>
-`;
+// document.querySelector('.contact-info').innerHTML = `
+//     <p><i class="fas fa-map-marker-alt"></i> ${config.address}</p>
+//     <p><i class="fas fa-phone"></i> ${config.phone}</p>
+//     <p><i class="fas fa-envelope"></i> ${config.email}</p>
+// `;
 
 // Populate social links
 document.querySelector('.social-links').innerHTML = `
@@ -97,15 +97,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // Contact form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Add form submission logic here
-        alert('Message sent successfully!');
-        this.reset();
-    });
-}
+// const contactForm = document.querySelector('.contact-form');
+// if (contactForm) {
+//     contactForm.addEventListener('submit', function(e) {
+//         e.preventDefault();
+//         // Add form submission logic here
+//         alert('Message sent successfully!');
+//         this.reset();
+//     });
+// }
 
 // Hamburger menu functionality
 const hamburger = document.querySelector('.hamburger');

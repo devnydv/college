@@ -1,5 +1,5 @@
 from college import app
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask import request, jsonify
 from college.model import db, admin, Student, Faculty
 
@@ -23,8 +23,9 @@ def admlogin():
             session['user_id'] = user.username
             return redirect(url_for("admin"))
         else:
-            return redirect(url_for("login", message="Invalid credentials"))
-
+            flash("Invalid credentials")
+            return redirect(url_for("login"))
+    flash("User not found")
     return redirect(url_for("login"))
 
 @app.route("/login/student", methods = ["GET", "POST"])
@@ -40,8 +41,9 @@ def student_login():
                 session['student'] = user.id
                 return redirect(url_for("student_profile", id=user.id))
         else:
-            return redirect(url_for("login", message="Invalid credentials"))
-
+            flash("Invalid credentials")
+            return redirect(url_for("login"))
+    flash("User not found")
     return render_template("login.html")
 
 @app.route("/login/faculty", methods = ["GET", "POST"])
@@ -54,10 +56,11 @@ def faculty_login():
         if user:
             if int(phone) == user.phone and email == user.email:
                 session['faculty'] = user.id
-                return redirect(url_for("faculty_profile", id=user.id, logged_in=True))
+                return redirect(url_for("faculty_profile", id=user.id))
         else:
-            return redirect(url_for("login", message="Invalid credentials"))
-
+            flash("Invalid credentials")
+            return redirect(url_for("login"))
+    flash("User not found")
     return render_template("login.html")
 
 
@@ -67,4 +70,5 @@ def logout():
     session.pop('student', None)
     session.pop('faculty', None)
     session.pop('user_id', None)
+    flash("You have been logged out successfully. please login again.")
     return redirect(url_for("login"))
