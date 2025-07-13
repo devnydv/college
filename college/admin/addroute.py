@@ -1,6 +1,6 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
-from college.model import db, Student, Faculty, Notice, Subject, Result, Department
+from college.model import Semester, db, Student, Faculty, Notice, Subject, Result, Department
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
 
@@ -117,7 +117,150 @@ def addresult(id):
 
 
 data = {
-    "Mechanical Engineering": {
+  "Computer Science Engineering": {
+    "First Semester": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Programming for Problem Solving",
+      "Basic Electrical and Electronics Engineering",
+      "Engineering Graphics and Workshop",
+      "Communication Skills",
+      "Physics Lab",
+      "Programming Lab"
+    ],
+    "Second Semester": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Data Structures",
+      "Digital Logic Design",
+      "Environmental Studies",
+      "Data Structures Lab",
+      "Digital Logic Lab"
+    ],
+    "Third Semester": [
+      "Discrete Mathematics",
+      "Computer Organization and Architecture",
+      "Object Oriented Programming",
+      "Operating Systems",
+      "Design and Analysis of Algorithms",
+      "OOPs Lab",
+      "OS Lab and Algorithm Lab"
+    ],
+    "Fourth Semester": [
+      "Theory of Computation",
+      "Database Management Systems",
+      "Computer Networks",
+      "Software Engineering",
+      "DBMS Lab",
+      "CN Lab",
+      "Mini Project I"
+    ],
+    "Fifth Semester": [
+      "Compiler Design",
+      "Web Technologies",
+      "Artificial Intelligence",
+      "Professional Ethics",
+      "Web Tech Lab",
+      "Compiler Design Lab",
+      "Minor Project II"
+    ],
+    "Sixth Semester": [
+      "Cloud Computing and  IoT",
+      "Mobile App Development and Big Data",
+      "Cybersecurity",
+      "Major Project Phase I",
+      "Aptitude & Reasoning Skills",
+      "Technical Seminar"
+    ],
+    "Seventh Semester": [
+      "Data Science",
+      "Research Methodology",
+      "Industrial Management",
+      "Major Project Phase II",
+      "Internship and Field Work"
+    ],
+    "Eighth Semester": [
+      "Major Project Final Submission",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Technologies",
+      "Capstone Project"
+    ]
+  },
+
+  "Electronics Engineering": {
+    "First Semester": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Second Semester": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Basic Electronics Engineering",
+      "Network Theory",
+      "Environmental Science",
+      "Basic Electronics Lab",
+      "Network Lab"
+    ],
+    "Third Semester": [
+      "Engineering Mathematics III",
+      "Analog Electronics",
+      "Digital Electronics",
+      "Signals and Systems",
+      "Electronic Measurement and Instrumentation",
+      "Analog Electronics Lab",
+      "Digital Electronics Lab"
+    ],
+    "Fourth Semester": [
+      "Electromagnetic Fields",
+      "Microprocessors and Microcontrollers",
+      "Analog Communication",
+      "Control Systems",
+      "Microprocessor Lab",
+      "Communication Lab",
+      "Mini Project I"
+    ],
+    "Fifth Semester": [
+      "Digital Communication",
+      "VLSI Design",
+      "Embedded Systems",
+      "Antenna and Wave Propagation",
+      "VLSI Lab",
+      "Digital Communication Lab",
+      "Minor Project II"
+    ],
+    "Sixth Semester": [
+      "Microwave Engineering",
+      "Digital Signal Processing",
+      "Industrial Automation and Robotics",
+      "IoT and Embedded Systems",
+      "DSP Lab",
+      "Microwave Lab",
+      "Technical Seminar"
+    ],
+    "Seventh Semester": [
+      "Wireless and Mobile Communication",
+      "Optical Communication",
+      "Machine Learning",
+      "Major Project Phase I",
+      "Internship and Technical Seminar"
+    ],
+    "Eighth Semester": [
+      "Satellite Communication and Advanced VLSI",
+      "Major Project Final Phase",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Technologies in Electronics"
+    ]
+  },
+
+  "Mechanical Engineering": {
     "First Semester": [
       "Engineering Mathematics I",
       "Physics",
@@ -189,31 +332,115 @@ data = {
       "Emerging Trends in Mechanical Engineering"
     ]
   },
+
+  "Civil Engineering": {
+    "First Semester": [
+      "Engineering Mathematics I",
+      "Physics",
+      "Basic Electrical & Electronics Engineering",
+      "Engineering Mechanics",
+      "Communication Skills",
+      "Physics Lab",
+      "Basic Engineering Lab",
+      "Workshop Practice"
+    ],
+    "Second Semester": [
+      "Engineering Mathematics II",
+      "Chemistry",
+      "Programming for Problem Solving",
+      "Engineering Graphics",
+      "Environmental Science",
+      "Programming Lab",
+      "Engineering Graphics Lab"
+    ],
+    "Third Semester": [
+      "Engineering Mathematics III",
+      "Building Materials & Construction",
+      "Strength of Materials",
+      "Surveying I",
+      "Fluid Mechanics",
+      "Materials Testing Lab",
+      "Surveying Lab"
+    ],
+    "Fourth Semester": [
+      "Structural Analysis I",
+      "Concrete Technology",
+      "Transportation Engineering I",
+      "Geotechnical Engineering I",
+      "Surveying II",
+      "Concrete Lab",
+      "Soil Mechanics Lab",
+      "Mini Project I"
+    ],
+    "Fifth Semester": [
+      "Structural Analysis II",
+      "Design of Reinforced Concrete Structures",
+      "Geotechnical Engineering II",
+      "Transportation Engineering II",
+      "Construction Planning & Management",
+      "Geotech Lab II",
+      "Structural Design Lab",
+      "Minor Project II"
+    ],
+    "Sixth Semester": [
+      "Design of Steel Structures",
+      "Water Supply & Wastewater Engineering",
+      "Environmental Engineering",
+      "Estimation, Costing & Valuation",
+      "Open Channel Flow ",
+      "Environmental Engg. Lab",
+      "CAD in Civil Lab",
+      "Industrial Training"
+    ],
+    "Seventh Semester": [
+      "Irrigation & Hydraulic Structures",
+      "Advanced Foundation Engineering ",
+      "Remote Sensing & GIS",
+      "Ethics",
+      "Major Project Phase I",
+      "Technical Seminar"
+    ],
+    "Eighth Semester": [
+      "Green Building Technologies",
+      "Major Project Final Submission",
+      "Viva Voce",
+      "Internship Report",
+      "Emerging Trends in Civil Engineering"
+    ]
+  }
 }
 
-@app.route("/admin/demo", methods = ["GET", "POST"])
-def demo():
-    
-    for semester, subjects in data["Mechanical Engineering"].items():
-        print(semester, subjects)
-        for subject in subjects:
-            new_subject = Subject(
-                name=subject,
-                semester=semester,
-                dep_id=2  # Assuming department ID is 2 for Mechanical Engineering
-            )
-            db.session.add(new_subject)
-    db.session.commit()
-    return "Subjects added successfully"
+@app.route("/admin/data", methods = ["GET", "POST"])
+def add_data():
+    def addsemester():
+        for sem in allsem:
+            semester = Semester(name=sem)
+            db.session.add(semester)
+        db.session.commit()
+    addsemester()
 
-@app.route("/admin/dept", methods = ["GET", "POST"])
-def deptm():
-    dept_data = ['Computer Science Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Electronics Engineering']
-    for dept in dept_data:
-        departments = Department(
-            name=dept,
-            hod=1
-        )
-        db.session.add(departments)
-    db.session.commit()
-    return "Departments added successfully"
+    def adddep():
+      dept_data = ['Computer Science Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Electronics Engineering']
+      for dept in dept_data:
+          departments = Department(
+              name=dept,
+              hod=1
+          )
+          db.session.add(departments)
+      db.session.commit()
+    adddep()
+    for dept in dep :
+        for semester, subjects in data[dept].items():
+            for subject in subjects:
+                new_subject = Subject(
+                    name=subject,
+                    semester=semester,
+                    dep_id= dep.index(dept) + 1  # Assuming department IDs start from 1
+                )
+                db.session.add(new_subject)
+        db.session.commit()
+    return "Data added successfully"
+
+
+
+

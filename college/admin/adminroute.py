@@ -1,11 +1,11 @@
 from college import app
 from flask import render_template, request, redirect, session, url_for
 from college.model import db, Student, Faculty, Notice, Subject
-from tempdata import departments
+from tempdata import departments, subjects
 from sqlalchemy import desc
 
 dep = departments()
-
+sub = subjects()
 @app.route("/admin", methods = ["GET", "POST"])
 def admin():
     total_student = Student.query.count()
@@ -53,7 +53,7 @@ def cours():
     logged = 'user_id' in session
     if logged:
         subjects = Subject.query.all()
-        return render_template("courses.html", subjects=subjects, departments= dep)
+        return render_template("courses.html", subjects= subjects, departments= dep)
     else:
         return redirect(url_for("login"))
     

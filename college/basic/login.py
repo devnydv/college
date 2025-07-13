@@ -21,7 +21,6 @@ def admlogin():
     if user != None:
         if password == user.password and username == user.username:
             session['user_id'] = user.username
-        
             return redirect(url_for("admin"))
         else:
             return redirect(url_for("login", message="Invalid credentials"))
