@@ -12,6 +12,6 @@ def student_profile(id):
 
         if not student:
             return "Student not found", 404
-        return render_template("student-profile.html", student=student, id=id, results=result)
+        return render_template("student-profile.html", student=student, id=id, results=result, logged_in=True)
     return redirect(url_for("login"))
 

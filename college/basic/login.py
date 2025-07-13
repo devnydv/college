@@ -33,13 +33,12 @@ def student_login():
     if request.method == "POST":
         email = request.form["email"]
         phone = request.form["phone"]
-        
         user = Student.query.filter_by(email=email).first()
+        
         if user:
-            session['student'] = user.id
-            print(user.phone) 
-
-            return redirect(url_for("student_profile", id=user.id))
+            if int(phone) == user.phone and email == user.email:
+                session['student'] = user.id
+                return redirect(url_for("student_profile", id=user.id))
         else:
             return redirect(url_for("login", message="Invalid credentials"))
 
@@ -53,9 +52,19 @@ def faculty_login():
 
         user = Faculty.query.filter_by(email=email).first()
         if user:
-            session['faculty'] = user.id
-            return redirect(url_for("faculty_profile", id=user.id))
+            if int(phone) == user.phone and email == user.email:
+                session['faculty'] = user.id
+                return redirect(url_for("faculty_profile", id=user.id, logged_in=True))
         else:
             return redirect(url_for("login", message="Invalid credentials"))
 
     return render_template("login.html")
+
+
+
+@app.route("/logout", methods = ["GET", "POST"])
+def logout():
+    session.pop('student', None)
+    session.pop('faculty', None)
+    session.pop('user_id', None)
+    return redirect(url_for("login"))
