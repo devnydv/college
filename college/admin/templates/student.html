@@ -47,8 +47,8 @@
                 <div class="student-filters" w-tid="367">
                     <div class="filter-group" w-tid="369">
                         <label w-tid="371">Department:</label>
-                        <select w-tid="373">
-                            <option w-tid="375">All Departments</option>
+                        <select id="departmentSelect" w-tid="373">
+                            <option w-tid="375" value="all">All Departments</option>
                             {%for dep in departments%}
                             {{dep}}
                             <option value="{{dep}}">{{dep}}</option>
@@ -78,7 +78,7 @@
                         </div> -->
                 </div>
                 <div class="students-table" w-tid="415">
-                    <table w-tid="417">
+                    <table w-tid="417" id="deptTable">
                         <thead w-tid="419">
                             <tr w-tid="421">
                                 <!-- <th w-tid="423">ID</th> -->
@@ -96,7 +96,7 @@
                         <tbody w-tid="439">
 
                             {%for student in students%}
-                            <tr w-tid="441">
+                            <tr w-tid="441" data-department="{{student.department}}">
                                 <!-- <td w-tid="443">{{student.id}}</td> -->
                                 <td w-tid="445">{{student.name}}</td>
                                 <td w-tid="447">{{student.department}}</td>
@@ -148,7 +148,24 @@
     </main>
 </div>
 
+<script>
+  const selectBox = document.getElementById('departmentSelect');
+  const rows = document.querySelectorAll('#deptTable tbody tr');
 
+  selectBox.addEventListener('change', function () {
+    const selectedDepartment = this.value;
+
+    rows.forEach(row => {
+        
+      const rowDepartment = row.getAttribute('data-department');
+      if (selectedDepartment === 'all' || rowDepartment === selectedDepartment) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>
 
 <script src="{{url_for('static', filename='js/script.js')}}"></script>
 {%endblock%}
