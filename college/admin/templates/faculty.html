@@ -43,9 +43,9 @@
 
                     <div class="student-filters" w-tid="639">
                         <div class="filter-group" w-tid="641">
-                            <label w-tid="643">Department:</label>
-                            <select w-tid="373">
-                            <option w-tid="375">All Departments</option>
+                            <label w-tid="643" >Department:</label>
+                            <select id="departmentSelect" w-tid="373">
+                            <option w-tid="375" value="all">All Departments</option>
                             {%for dep in departments%}
                             {{dep}}
                             <option value="{{dep}}">{{dep}}</option>
@@ -67,7 +67,7 @@
 
 
                     <div class="students-table" w-tid="673">
-                        <table w-tid="675">
+                        <table w-tid="675" id="deptTable"> 
                             <thead w-tid="677">
                                 <tr w-tid="679">
                                     <th w-tid="681">ID</th>
@@ -82,7 +82,7 @@
                             <tbody w-tid="695">
                                 {%for faculty in faculties%}
                                 
-                                <tr w-tid="697">
+                                <tr w-tid="697" data-department="{{faculty.department}}">
                                     <td w-tid="699">{{faculty.facultyid}}</td>
                                     <td w-tid="701">{{faculty.name}}</td>
                                     <td w-tid="703">{{faculty.department}}</td>
@@ -119,4 +119,23 @@
             </div>
         </main>
     </div>
+
+    <script>
+  const selectBox = document.getElementById('departmentSelect');
+  const rows = document.querySelectorAll('#deptTable tbody tr');
+
+  selectBox.addEventListener('change', function () {
+    const selectedDepartment = this.value;
+
+    rows.forEach(row => {
+        
+      const rowDepartment = row.getAttribute('data-department');
+      if (selectedDepartment === 'all' || rowDepartment === selectedDepartment) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>
     {%endblock%} 

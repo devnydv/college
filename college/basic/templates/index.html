@@ -45,18 +45,19 @@
 
         <section class="news-highlight">
             <h2>Latest News & Events</h2>
+            
             <div class="news-grid">
+                {% for notice in notices %}
                 <div class="news-card">
-                    <h3>Annual Tech Fest 2024</h3>
-                    <p>Join us for the biggest technical festival of the year</p>
-                    <a href="#">Read More</a>
+                    <h3>{{ notice.title }}</h3>
+                    <p>{{ notice.content }}</p>
+                    
                 </div>
-                <div class="news-card">
-                    <h3>Campus Placement Drive</h3>
-                    <p>Top companies visiting for recruitment</p>
-                    <a href="#">Read More</a>
-                </div>
+                {% endfor %}
+                
+                
             </div>
+            <p>No More Notice and Events</p>
         </section>
     </main>
 

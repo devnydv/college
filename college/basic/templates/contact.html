@@ -1,66 +1,106 @@
 {%extends "base.html"%}
 
 {%block head%}
-    <title>Contact Us - Brahmagupta Engineering College</title><!DOCTYPE html>
-    <link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Contact Us - Brahmagupta Engineering College</title>
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{url_for('basic.static', filename='css/main.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  #error-message {
+    background-color: #f44336;
+    /* red */
+    color: white;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 4px;
+    display: none;
+  }
+
+  #error-message.fade-out {
+    animation: fadeOut 1s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+</style>
 {%endblock%}
 {%block content%}
 
-    <main class="about-page">
-        <header class="page-hero">
-            <h1>Contact Us</h1>
-            <p>Get in Touch with Us</p>
-        </header>
+<main class="about-page">
+    <header class="page-hero">
+        <h1>Contact Us</h1>
+        <p>Get in Touch with Us</p>
+    </header>
 
-        <section class="contact-content">
-            <div class="contact-info-cards">
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Visit Us</h3>
-                    <p class="address"></p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Call Us</h3>
-                    <p class="phone"></p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email Us</h3>
-                    <p class="email"></p>
-                </div>
+    <section class="contact-content">
+        <div class="contact-info-cards">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p class="address"></p>
             </div>
-
-            <div class="contact-form-section">
-                <h2>Send us a Message</h2>
-                <form class="contact-form" method="post" action="/admin/queries">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Call Us</h3>
+                <p class="phone"></p>
             </div>
-        </section>
-    </main>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p class="email"></p>
+            </div>
+        </div>
 
+        <div class="contact-form-section">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
 
+                <div id="error-message" class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <h2>Send us a Message</h2>
+            <form class="contact-form" method="post" action="/contact">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+</main>
 
-    <script type="importmap">
+<script>
+  const error = document.getElementById("error-message");
+  error.style.display = "block";
+
+  setTimeout(() => {
+    error.classList.add("fade-out");
+  }, 5000);
+</script>
+
+<script type="importmap">
         {
             "imports": {
                 "config": "./config.js"
             }
         }
     </script>
-    <script type="module" src="{{url_for('basic.static', filename='js/script.js')}}"></script>
-    {%endblock%}
+<script type="module" src="{{url_for('basic.static', filename='js/script.js')}}"></script>
+{%endblock%}

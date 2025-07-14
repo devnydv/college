@@ -50,7 +50,7 @@ def addfaculty():
             db.session.add(student)
             db.session.commit()
             return redirect(url_for("faculty"))
-    #inser = addtablerow()
+          #inser = addtablerow()
         return render_template("addfaculty.html", data =False, departments = dep, designations = designs)
     return  redirect(url_for("login"))
 
@@ -60,15 +60,17 @@ def addnotice():
     logged = 'user_id' in session
     if logged:
         if request.method == "POST":
-            data = request.form
-           
-            notice = Notice(title= data['title'],
-            content= data['content'],
-            date=datetime.now().replace(microsecond=0))
-            db.session.add(notice)
-            db.session.commit()
-            return redirect(url_for("notice"))
-    return render_template("addnotice.html", data = False)
+          data = request.form
+            
+          notice = Notice(title= data['title'],
+          content= data['content'],
+          date=datetime.now().replace(microsecond=0))
+          db.session.add(notice)
+          db.session.commit()
+          return redirect(url_for("notice"))
+        return render_template("addnotice.html", data = False)
+    return  redirect(url_for("login"))
+
 
 @app.route("/admin/addcourse", methods = ["GET", "POST"])
 def addcourse():
@@ -84,26 +86,29 @@ def adddepartment():
 
 @app.route("/admin/addresult/<id>", methods = ["GET", "POST"])
 def addresult(id):
-    student = Student.query.get(id)
-    if request.method == "POST":
-        data = request.form
-        
-        result = Result(
-            mark=data['mark'],
-            outoff=data['outoff'],
-            remark=data['remark'],
-            attendance=data['attendance'],
-            student_id= id,
-            semester=student.semester,
-            status=True if int(data['mark'])/ int(data['outoff']) * 100  >= 35 else False
-            )
-        
-        db.session.add(result)
-        if int(data['mark'])/ int(data['outoff']) * 100 >= 35:
-            student.semester += 1
-            db.session.add(student)
-        db.session.commit()
-        return redirect(url_for('stdn'))
+    global logged 
+    logged = 'user_id' in session
+    if logged:
+      student = Student.query.get(id)
+      if request.method == "POST":
+          data = request.form
+          
+          result = Result(
+              mark=data['mark'],
+              outoff=data['outoff'],
+              remark=data['remark'],
+              attendance=data['attendance'],
+              student_id= id,
+              semester=student.semester,
+              status=True if int(data['mark'])/ int(data['outoff']) * 100  >= 35 else False
+              )
+          
+          db.session.add(result)
+          if int(data['mark'])/ int(data['outoff']) * 100 >= 35:
+              student.semester += 1
+              db.session.add(student)
+          db.session.commit()
+          return redirect(url_for('stdn'))
     
     result = Result.query.filter_by(student_id=id)
     if not result:

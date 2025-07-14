@@ -104,17 +104,6 @@ def notice():
 def queries():
     logged = 'user_id' in session
     if logged:
-        if request.method == "POST":
-            name = request.form.get("name")
-            email = request.form.get("email")
-            subject = request.form.get("subject")
-            message = request.form.get("message")
-            
-            new_query = Query(name=name, email=email, subject=subject, message=message)
-            db.session.add(new_query)
-            db.session.commit()
-            
-            return redirect(url_for("contact"))
         queries = Query.query.all()
         return render_template("queries.html", queries=queries)
     else:

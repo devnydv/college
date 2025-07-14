@@ -1,9 +1,10 @@
 from college import app
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-
+from college.model import db, Query, Notice
 @app.route("/")
 def home(): 
-    return render_template("index.html")
+    notice = Notice.query.all()
+    return render_template("index.html", notices=notice)
 
 @app.route("/about")
 def about(): 
@@ -12,13 +13,19 @@ def about():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        message = request.form.get("message")
-        # Here you would typically process the form data, e.g., save it to a database or send an email
-        flash("Thank you for your message, {}!".format(name))
-        print("Contact form submitted")
-    return render_template("contact.html")
+         if request.method == "POST":
+            name = request.form.get("name")
+            email = request.form.get("email")
+            subject = request.form.get("subject")
+            message = request.form.get("message")
+            new_query = Query(name=name, email=email, subject=subject, message=message)
+            db.session.add(new_query)
+            db.session.commit()
+            flash("Thank you for your message.")
+            return redirect(url_for("contact"))
+            
+    else:
+        return render_template("contact.html")
 
 @app.route("/news")
 def news(): 
