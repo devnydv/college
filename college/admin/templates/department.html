@@ -82,14 +82,15 @@
                             </tr>
                         </thead>
                         <tbody w-tid="899">
+                            {%for user in hod%}
                             <tr w-tid="901">
-                                {%for user in hod%}
+                                
                                 
                                 <td w-tid="903">DEPT00{{user.id}}</td>
                                 <td w-tid="905">{{user.department}}</td>
                                 
                                 <td w-tid="903">{{user.name}}</td>
-                                {%endfor%}
+                                
                                 <!-- <td w-tid="915">
                                     <span w-tid="917"> Robert Anderson</span>
 
@@ -101,6 +102,7 @@
                                         <button class="action-btn delete-btn" w-tid="929"><i class="fas fa-trash" w-tid="931"></i></button>
                                     </td> -->
                             </tr>
+                            {%endfor%}
                             <!-- Add more department rows as needed -->
                         </tbody>
                     </table>

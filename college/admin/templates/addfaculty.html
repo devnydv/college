@@ -12,26 +12,40 @@
     {{cmsnav()}}
     <main class="main-content" w-tid="111">
         <header class="top-header" w-tid="113">
-                <h2>College Management System</h2>
-                <!-- <div class="search-box" w-tid="115">
+            <h2>College Management System</h2>
+            <!-- <div class="search-box" w-tid="115">
                     <input type="text" placeholder="Search..." w-tid="117"/>
                     <button w-tid="119"><i class="fas fa-search" w-tid="121"></i></button>
                 </div> -->
-                <div class="user-profile" w-tid="123">
-                    <span class="notification" w-tid="125"><a href="/admin/notice"><i class="fas fa-bell" w-tid="127"></i></a></span>
-                    <!-- <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span> -->
-                    <div class="profile-img" w-tid="133">
-                        <i class="fas fa-user-circle" w-tid="135"></i>
-                    </div>
-                    <span class="username" w-tid="137"><a href="{{url_for('logout')}}">Logout Admin</a></span>
+            <div class="user-profile" w-tid="123">
+                <span class="notification" w-tid="125"><a href="/admin/notice"><i class="fas fa-bell"
+                            w-tid="127"></i></a></span>
+                <!-- <span class="message" w-tid="129"><i class="fas fa-envelope" w-tid="131"></i></span> -->
+                <div class="profile-img" w-tid="133">
+                    <i class="fas fa-user-circle" w-tid="135"></i>
                 </div>
-            </header>
+                <span class="username" w-tid="137"><a href="{{url_for('logout')}}">Logout Admin</a></span>
+            </div>
+        </header>
         <!-- Dashboard Section -->
         <div id="dashboard-page" class="content-section" w-tid="139">
             <div class="dashboard" w-tid="141">
                 <h1 w-tid="357">Faculty Management</h1>
                 <div class="students-header" w-tid="359">
                     <p w-tid="361">Manage all student information and academic records</p>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+
+                        <div id="error-message" class="{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+
+
+
                     <a style="text-decoration: none; color:white" href="/admin/faculty">
                         <button id="cancel-add-student" class="back-button" w-tid="1515">
                             <i class="fas fa-arrow-left" w-tid="1517"></i> Back to Faculty
@@ -40,105 +54,112 @@
                 </div>
                 <div class="student-form-container" w-tid="1519">
                     {%if data%}
-                    <form id="add-student-form" method="POST" action="/admin/update/faculty/{{data.id}}" class="student-form"
-                        w-tid="1521">
+                    <form id="add-student-form" method="POST" action="/admin/update/faculty/{{data.id}}"
+                        class="student-form" w-tid="1521">
                         {%else%}
                         <form id="add-student-form" method="POST" action="/admin/addfaculty" class="student-form"
-                        w-tid="1521">
-                        {%endif%}
-                        <div class="form-row" w-tid="1523">
-                            <div class="form-group" w-tid="1525">
-                                <label for="name" w-tid="1527">Name*</label>
-                                <input type="text" id="new-firstName" name="name" required="" w-tid="1529" value="{{data.name}}">
-                            </div>
-                            <div class="form-group" w-tid="1525">
-                                <label for="facultyid" w-tid="1527">Faculty ID*</label>
-                                <input type="text" id="new-firstName" name="facultyid" required="" w-tid="1529"
-                                value="{{data.facultyid}}">
-                            </div>
-
-                        </div>
-                        <div class="form-row" w-tid="1523">
-                            <div class="form-group" w-tid="1525">
-                                <label for="education" w-tid="1527">Education*</label>
-                                <input type="text" id="new-firstName" name="education" required="" w-tid="1529" value="{{data.education}}">
-                            </div>
-                            <div class="form-group" w-tid="1571">
-                                <label for="new-dob" w-tid="1573">Date of Birth*</label>
-                                <input type="date" id="new-dob" name="dob" required="" w-tid="1575" value="{{data.dob}}">
-                            </div>
-                        </div>
-                        <div class="form-row" w-tid="1537">
-                            <div class="form-group" w-tid="1539">
-                                <label for="new-email" w-tid="1541">Email*</label>
-                                <input type="email" id="new-email" name="email" required="" w-tid="1543"
-                                value="{{data.email}}">
-                            </div>
-                            <div class="form-group" w-tid="1545">
-                                <label for="new-phone" w-tid="1547">Phone*</label>
-                                <input type="tel" id="new-phone" name="phone" required="" w-tid="1549" value="{{data.phone}}">
-                            </div>
-                        </div>
-
-                        <div class="form-row" w-tid="1551">
-                            <div class="form-group" w-tid="1553">
-                                <label for="new-department" w-tid="1555">Department*</label>
-                                <select id="new-department" name="department" required="" w-tid="1557">
-                                    <option value="">Select Department</option>
-                                    {%for dep in departments%}
-                                    <option {%if dep==data.department%}selected{%endif%} value="{{dep}}">{{dep}}
-                                    </option>
-                                    {%endfor%}
-                                </select>
-                            </div>
-                            <div class="form-group" w-tid="1561">
-                                <label for="role" w-tid="1563">Designation*</label>
-                                <select id="role" name="role" required="" w-tid="1565">
-                                    <option value="">Select Role</option>
-                                    {%for des in designations%}
-                                    <option {%if des==data.role%}selected{%endif%} value="{{des}}">{{des}}
-                                    </option>
-                                    {%endfor%}
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row" w-tid="1569">
-                            <div class="form-group" w-tid="1571">
-                                <label for="doj" w-tid="1573">Date of Joining*</label>
-                                <input type="date" id="doj" name="doj" required="" w-tid="1575" value="{{data.doj}}">
-                            </div>
-                            <div class="form-group" w-tid="1577">
-                                <label for="new-gender" w-tid="1579">Gender*</label>
-                                <select id="new-gender" name="gender" required="" w-tid="1581">
-                                    <option value="" w-tid="1583">Select Gender</option>
-                                    {%set genders = ['Male', 'Female', 'Other']%}
-                                    {%for gender in genders%}
-                                    <option value="{{gender}}" {%if gender == data.gender%}selected{%endif%} w-tid="1585">{{gender}}</option>
-                                    {%endfor%}
-                                    
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row" w-tid="1591">
-                            <div class="form-group full-width" w-tid="1593">
-                                <label for="new-address" w-tid="1595">Address*</label>
-                                <textarea id="new-address" name="address" rows="3" required="" w-tid="1597">{{data.address}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-actions" w-tid="1599">
-                            <a href="/admin/faculty">
-                            <button type="button" id="cancel-add-student" class="cancel-btn"
-                                w-tid="1601">Cancel</button></a>
-                            {%if data%}
-                            <button type="submit" class="save-btn" w-tid="1603">Update faculty</button>
-                            {%else%}
-                            <button type="submit" class="save-btn" w-tid="1603">Add Faculty</button>
+                            w-tid="1521">
                             {%endif%}
-                        </div>
-                    </form>
+                            <div class="form-row" w-tid="1523">
+                                <div class="form-group" w-tid="1525">
+                                    <label for="name" w-tid="1527">Name*</label>
+                                    <input type="text" id="new-firstName" name="name" required="" w-tid="1529"
+                                        value="{{data.name}}">
+                                </div>
+                                <div class="form-group" w-tid="1525">
+                                    <label for="facultyid" w-tid="1527">Faculty ID*</label>
+                                    <input type="text" id="new-firstName" name="facultyid" required="" w-tid="1529"
+                                        value="{{data.facultyid}}">
+                                </div>
+
+                            </div>
+                            <div class="form-row" w-tid="1523">
+                                <div class="form-group" w-tid="1525">
+                                    <label for="education" w-tid="1527">Education*</label>
+                                    <input type="text" id="new-firstName" name="education" required="" w-tid="1529"
+                                        value="{{data.education}}">
+                                </div>
+                                <div class="form-group" w-tid="1571">
+                                    <label for="new-dob" w-tid="1573">Date of Birth*</label>
+                                    <input type="date" id="new-dob" name="dob" required="" w-tid="1575"
+                                        value="{{data.dob}}">
+                                </div>
+                            </div>
+                            <div class="form-row" w-tid="1537">
+                                <div class="form-group" w-tid="1539">
+                                    <label for="new-email" w-tid="1541">Email*</label>
+                                    <input type="email" id="new-email" name="email" required="" w-tid="1543"
+                                        value="{{data.email}}">
+                                </div>
+                                <div class="form-group" w-tid="1545">
+                                    <label for="new-phone" w-tid="1547">Phone*</label>
+                                    <input type="tel" id="new-phone" name="phone" required="" w-tid="1549"
+                                        value="{{data.phone}}">
+                                </div>
+                            </div>
+
+                            <div class="form-row" w-tid="1551">
+                                <div class="form-group" w-tid="1553">
+                                    <label for="new-department" w-tid="1555">Department*</label>
+                                    <select id="new-department" name="department" required="" w-tid="1557">
+                                        <option value="">Select Department</option>
+                                        {%for dep in departments%}
+                                        <option {%if dep==data.department%}selected{%endif%} value="{{dep}}">{{dep}}
+                                        </option>
+                                        {%endfor%}
+                                    </select>
+                                </div>
+                                <div class="form-group" w-tid="1561">
+                                    <label for="role" w-tid="1563">Designation*</label>
+                                    <select id="role" name="role" required="" w-tid="1565">
+                                        <option value="">Select Role</option>
+                                        {%for des in designations%}
+                                        <option {%if des==data.role%}selected{%endif%} value="{{des}}">{{des}}
+                                        </option>
+                                        {%endfor%}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row" w-tid="1569">
+                                <div class="form-group" w-tid="1571">
+                                    <label for="doj" w-tid="1573">Date of Joining*</label>
+                                    <input type="date" id="doj" name="doj" required="" w-tid="1575"
+                                        value="{{data.doj}}">
+                                </div>
+                                <div class="form-group" w-tid="1577">
+                                    <label for="new-gender" w-tid="1579">Gender*</label>
+                                    <select id="new-gender" name="gender" required="" w-tid="1581">
+                                        <option value="" w-tid="1583">Select Gender</option>
+                                        {%set genders = ['Male', 'Female', 'Other']%}
+                                        {%for gender in genders%}
+                                        <option value="{{gender}}" {%if gender==data.gender%}selected{%endif%}
+                                            w-tid="1585">{{gender}}</option>
+                                        {%endfor%}
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row" w-tid="1591">
+                                <div class="form-group full-width" w-tid="1593">
+                                    <label for="new-address" w-tid="1595">Address*</label>
+                                    <textarea id="new-address" name="address" rows="3" required=""
+                                        w-tid="1597">{{data.address}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions" w-tid="1599">
+                                <a href="/admin/faculty">
+                                    <button type="button" id="cancel-add-student" class="cancel-btn"
+                                        w-tid="1601">Cancel</button></a>
+                                {%if data%}
+                                <button type="submit" class="save-btn" w-tid="1603">Update faculty</button>
+                                {%else%}
+                                <button type="submit" class="save-btn" w-tid="1603">Add Faculty</button>
+                                {%endif%}
+                            </div>
+                        </form>
                 </div>
 
 
@@ -147,5 +168,12 @@
         </div>
     </main>
 </div>
+<script>
+  const error = document.getElementById("error-message");
+  error.style.display = "block";
 
+  setTimeout(() => {
+    error.classList.add("fade-out");
+  }, 5000);
+</script>
 {%endblock%}

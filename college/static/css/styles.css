@@ -3,6 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* error area  */
+
+  #error-message {
+    background-color: #f44336;
+    /* red */
+    color: white;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 4px;
+    display: none;
+  }
+
+  #error-message.fade-out {
+    animation: fadeOut 1s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
 
 body {
     font-family: Arial, sans-serif;

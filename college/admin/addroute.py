@@ -1,8 +1,9 @@
 from college import app
-from flask import render_template, request, redirect, session, url_for
+from flask import render_template, request, redirect, session, url_for, flash
 from college.model import Semester, db, Student, Faculty, Notice, Subject, Result, Department
 from datetime import datetime
 from tempdata import semester, gender, departments, designations
+from sqlalchemy.exc import IntegrityError
 
 allsem =  semester()
 dep = departments()
@@ -47,10 +48,15 @@ def addfaculty():
             doj= datetime.strptime(data['doj'], '%Y-%m-%d').date(),
             gender= data['gender'],
             address= data['address'])
-            db.session.add(student)
-            db.session.commit()
-            return redirect(url_for("faculty"))
-          #inser = addtablerow()
+            try:
+                db.session.add(student)
+                db.session.commit()
+                return redirect(url_for("faculty"))
+            except IntegrityError:
+                db.session.rollback()
+                flash("Email, roll number or phone number already exists.")
+                return redirect(url_for("addfaculty"))
+                
         return render_template("addfaculty.html", data =False, departments = dep, designations = designs)
     return  redirect(url_for("login"))
 

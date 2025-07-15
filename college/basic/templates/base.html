@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
-    
+
 
     {%block head%}
 
     {%endblock%}
 </head>
+
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="{{url_for('static', filename='images/icon.png')}}" alt="Brahmagupta Engineering College Logo" width="48">
-            
+            <img src="{{url_for('static', filename='images/icon.png')}}" alt="Brahmagupta Engineering College Logo"
+                width="48">
+
             <div class="logo-text">
                 <h1>Brahmagupta</h1>
                 <span>Engineering College</span>
@@ -35,19 +38,23 @@
         </ul>
     </nav>
     {%block content%}
-    
+
     {%endblock%}
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p class="contact-info"></p>
+            <div class="footer-section" w-tid="147">
+                <h3 w-tid="149">Contact Us</h3>
+                <p class="contact-info" w-tid="151">
+                <p><i class="fas fa-map-marker-alt"></i> 123 Academic Avenue, Knowledge City - 123456</p>
+                <p><i class="fas fa-phone"></i> +91 123-456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@brahmaguptacollege.edu</p>
+                </p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#">Admissions</a></li>
-                    
+
                     <li><a href="#">Library</a></li>
                     <li><a href="/login">Student Portal</a></li>
                 </ul>
@@ -58,9 +65,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Brahmagupta Engineering College. All rights reserved.</p>
+            <p>&copy; 2025 Brahmagupta Engineering College. All rights reserved.</p>
         </div>
     </footer>
     <script type="module" src="{{url_for('basic.static', filename='js/script.js')}}"></script>
 </body>
+
 </html>
