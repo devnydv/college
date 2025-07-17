@@ -25,8 +25,13 @@ def addstdn():
             gender= data['gender'],
             department= data['department'],
             address= data['address'])
-            db.session.add(student)
-            db.session.commit()
+            try:
+                db.session.add(student)
+                db.session.commit()
+            except IntegrityError:
+                db.session.rollback()
+                flash("Email, roll number or phone number already exists.")
+                return redirect(url_for("addstdn"))
             return redirect(url_for('stdn'))
         return render_template("addstudent.html", data = False, allsem = allsem, departments = dep)
     return  redirect(url_for("login"))
@@ -52,7 +57,7 @@ def addfaculty():
                 db.session.add(student)
                 db.session.commit()
                 return redirect(url_for("faculty"))
-            except IntegrityError:
+            except IntegrityError: 
                 db.session.rollback()
                 flash("Email, roll number or phone number already exists.")
                 return redirect(url_for("addfaculty"))

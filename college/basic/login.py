@@ -35,6 +35,9 @@ def student_login():
         email = request.form["email"]
         phone = request.form["phone"]
         user = Student.query.filter_by(email=email).first()
+        if not phone.isnumeric():
+            flash("Phone number must be numeric")
+            return redirect(url_for("login"))
         
         if user:
             if int(phone) == user.phone and email == user.email:
@@ -51,15 +54,18 @@ def faculty_login():
     if request.method == "POST":
         email = request.form["email"]
         phone = request.form["phone"]
-
-        user = Faculty.query.filter_by(email=email).first()
-        if user:
-            if int(phone) == user.phone and email == user.email:
-                session['faculty'] = user.id
-                return redirect(url_for("faculty_profile", id=user.id))
-        else:
-            flash("Invalid credentials")
+        if not phone.isnumeric():
+            flash("Phone number must be numeric")
             return redirect(url_for("login"))
+        else:
+            user = Faculty.query.filter_by(email=email).first()
+            if user:
+                if int(phone) == user.phone and email == user.email:
+                    session['faculty'] = user.id
+                    return redirect(url_for("faculty_profile", id=user.id))
+            else:
+                flash("Invalid credentials")
+                return redirect(url_for("login"))
     flash("User not found")
     return render_template("login.html")
 

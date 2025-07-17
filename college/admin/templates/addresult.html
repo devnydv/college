@@ -106,7 +106,7 @@
                                 <!-- <td w-tid="443">{{student.id}}</td> -->
                                 <td w-tid="445">{{result.mark}}</td>
                                 <td w-tid="447">{{result.outoff}}</td>
-                                <td w-tid="449">{{result.attendance}}</td>
+                                <td w-tid="449">{{result.attendance}}%</td>
                                 <td w-tid="451">{{result.remark}}</td>
                                 {%if result.status%}
                                 <td w-tid="453">Pass</td>
@@ -172,8 +172,8 @@
                                 <input type="number" id="new-email" name="attendance" required="" w-tid="1543" value="">
                             </div>
                             <div class="form-group" w-tid="1545">
-                                <label for="new-phone" w-tid="1547">Remark</label>
-                                <input type="text" id="new-phone" minlength="10" maxlength="15" name="remark"
+                                <label for="remark" w-tid="1547">Remark</label>
+                                <input type="text" id="remark"  maxlength="100" name="remark"
                                     required="" w-tid="1549" value="">
                             </div>
 

@@ -48,9 +48,13 @@
             
             <div class="news-grid">
                 {% for notice in notices %}
+                
                 <div class="news-card">
                     <h3>{{ notice.title }}</h3>
+                    <p>Date: {{ notice.date.date() }}</p>
+
                     <p>{{ notice.content }}</p>
+                    
                     
                 </div>
                 {% endfor %}
