@@ -120,7 +120,7 @@ class Result(db.Model):
     attendance = db.Column(db.Integer, nullable=False)
     remark = db.Column(db.String(100), nullable=True)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
-    semester = db.Column(db.String(100), nullable=False)
+    semester = db.Column(db.String(100), db.ForeignKey('semester.id'), nullable=False)
     status = db.Column(db.Boolean, nullable=False)
 
     def to_dict(self):
@@ -139,6 +139,7 @@ class Semester(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     students = db.relationship('Student', backref='semester_', lazy=True)
+    results = db.relationship('Result', backref='semester_', lazy=True)
     def to_dict(self):
         return {
             "id": self.id,
