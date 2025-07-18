@@ -40,8 +40,9 @@ def login():
     if session.get('user_id'): 
         return redirect(url_for("admin"))
     elif session.get('student'):
-        return redirect(url_for("student"))
+        id = session['student']
+        return redirect(url_for("student_profile", id=id))
     elif session.get('faculty'):
-        return redirect(url_for("faculty"))
+        return redirect(url_for("faculty_profile", id=session['faculty']))
     return render_template("login.html")
 
