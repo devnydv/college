@@ -124,6 +124,27 @@
                 </div>
             </div> -->
     </div>
+    <section class="news-highlight">
+            <h2>Latest notices</h2>
+            
+            <div class="news-grid">
+                {% for notice in notices %}
+                
+                <div class="news-card">
+                    <h3>{{ notice.title }}</h3>
+                    <p>Date: {{ notice.date.date() }}</p>
+
+                    <p>{{ notice.content }}</p>
+                    
+                    
+                </div>
+                {% endfor %}
+                
+                
+            </div>
+            <br>
+            <p>No More Notice and Events</p>
+        </section>
 </main>
 
 
