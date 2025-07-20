@@ -83,7 +83,7 @@
                     <table w-tid="417">
                         <thead w-tid="419">
                             <tr w-tid="421">
-                                <!-- <th w-tid="423">ID</th> -->
+                                <th w-tid="423">Semester</th>
                                 <th w-tid="425">Mark obtained</th>
 
                                 <th w-tid="427">Out off</th>
@@ -103,11 +103,12 @@
 
 
                             <tr w-tid="441">
-                                <!-- <td w-tid="443">{{student.id}}</td> -->
+                                <td w-tid="443">{{result.semester_.name}}</td>
                                 <td w-tid="445">{{result.mark}}</td>
                                 <td w-tid="447">{{result.outoff}}</td>
                                 <td w-tid="449">{{result.attendance}}%</td>
                                 <td w-tid="451">{{result.remark}}</td>
+                                
                                 {%if result.status%}
                                 <td w-tid="453">Pass</td>
                                 {% else %}
